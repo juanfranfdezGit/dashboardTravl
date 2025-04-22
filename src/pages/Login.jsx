@@ -1,6 +1,6 @@
 import Button from "../components/common/Button"
 import styled from 'styled-components';
-import Logo from "../components/common/Logo";
+import Logo from "../components/sideBar/Logo";
 import { FaUser } from "react-icons/fa";
 import { MdOutlinePassword } from "react-icons/md";
 import { useNavigate } from "react-router-dom";

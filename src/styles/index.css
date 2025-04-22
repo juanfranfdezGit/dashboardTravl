@@ -8,6 +8,11 @@
   box-sizing: border-box;
 }
 
+body {
+  background: var(--grey);
+  overflow: hidden;
+}
+
 h1 {
   font-size: 3rem;
   font-family: poppins;
@@ -32,6 +37,12 @@ p {
   color: var(--black);
 }
 
+span {
+  font-size: 1rem;
+  font-family: poppins;
+  color: var(--black);
+}
+
 label {
   font-size: 1rem;
   font-family: poppins;
@@ -43,4 +54,11 @@ a {
   font-family: poppins;
   color: var(--black);
   text-decoration: none;
+}
+
+li {
+  font-size: 1rem;
+  font-family: poppins;
+  color: var(--black);
+  list-style: none;
 }
