@@ -1,0 +1,16 @@
+.solid {
+    padding: 1rem 2rem;
+    background: var(--main-color);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+    font-family: poppins;
+    transition: all .5s;
+    margin-top: 12px;
+
+    &:hover {
+        box-shadow: 0 0 4px var(--black);
+    }
+}

@@ -1,8 +1,16 @@
+import Logo from "./common/Logo";
+import styled from 'styled-components';
+
 export default function Sidebar() {
     
     return (
-        <>
-            <h2>SIDEBAR</h2>
-        </>
+        <Sidebar>
+            <Logo />
+        <Sidebar />
     )
 }
+
+const Sidebar = styled.div `
+    display: flex;
+    justify-content: center;
+`;

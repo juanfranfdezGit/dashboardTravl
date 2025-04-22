@@ -12,22 +12,32 @@ import Users from './components/dashboard/Users';
 import Contact from './components/dashboard/Contact';
 import Rooms from './components/dashboard/Rooms';
 
+import ProtectedRoute from './routes/protectedRoute';
+import { LoginProvider } from './context/loginContext';
+
 const router = createBrowserRouter([
   { path: '/', element: <Login /> },
   {
-    path: '/dashboard', element: <DashboardLayout />,
+    path: '/dashboard',
+    element: (
+      <ProtectedRoute>
+        <DashboardLayout />
+      </ProtectedRoute>
+    ),
     children: [
-      {path: '', element: <Dashboard />},
-      {path: 'bookings', element: <Bookings />},
-      {path: 'rooms', element: <Rooms />},
-      {path: 'users', element: <Users />},
-      {path: 'contact', element: <Contact />},
+      { index: true, element: <ProtectedRoute><Dashboard /></ProtectedRoute> },
+      { path: 'bookings', element: <ProtectedRoute><Bookings /></ProtectedRoute> },
+      { path: 'rooms', element: <ProtectedRoute><Rooms /></ProtectedRoute> },
+      { path: 'users', element: <ProtectedRoute><Users /></ProtectedRoute> },
+      { path: 'contact', element: <ProtectedRoute><Contact /></ProtectedRoute> },
     ]
   }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <LoginProvider>
+      <RouterProvider router={router} />
+    </LoginProvider>
   </React.StrictMode>
 );

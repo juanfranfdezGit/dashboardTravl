@@ -1,5 +1,6 @@
 @import './variables.css';
 @import './fonts.css';
+@import './common/button.css';
 
 * {
   padding: 0;
@@ -11,4 +12,35 @@ h1 {
   font-size: 3rem;
   font-family: poppins;
   color: var(--black);
+}
+
+h2 {
+  font-size: 2rem;
+  font-family: poppins;
+  color: var(--black);
+}
+
+h3 {
+  font-size: 1.4rem;
+  font-family: poppins;
+  color: var(--black);
+}
+
+p {
+  font-size: 1rem;
+  font-family: poppins;
+  color: var(--black);
+}
+
+label {
+  font-size: 1rem;
+  font-family: poppins;
+  color: var(--black);
+}
+
+a {
+  font-size: 1rem;
+  font-family: poppins;
+  color: var(--black);
+  text-decoration: none;
 }
