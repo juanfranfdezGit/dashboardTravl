@@ -14,6 +14,7 @@ import Rooms from './components/dashboard/Rooms';
 
 import ProtectedRoute from './routes/protectedRoute';
 import { LoginProvider } from './context/loginContext';
+import { LanguageProvider } from './context/languageContext';
 
 const router = createBrowserRouter([
   { path: '/', element: <Login /> },
@@ -37,7 +38,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <LoginProvider>
-      <RouterProvider router={router} />
+      <LanguageProvider>
+        <RouterProvider router={router} />
+      </LanguageProvider>
     </LoginProvider>
   </React.StrictMode>
 );

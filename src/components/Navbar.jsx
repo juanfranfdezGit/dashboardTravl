@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 import NavbarActions from './navbar/Actions';
 import LanguageSelector from './navbar/LanguageSelector';
+import Title from './navbar/Title';
 
 export default function Navbar() {
     
     return (
         <NavbarStyled>
+            <Title />
             <NavbarActions />
             <LanguageSelector />
         </NavbarStyled>

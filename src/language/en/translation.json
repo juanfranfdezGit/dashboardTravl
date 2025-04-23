@@ -1,0 +1,17 @@
+{
+    "sidebar": {
+      "Dashboard": "Dashboard",
+      "Room": "Room",
+      "Bookings": "Bookings",
+      "Guest": "Guest",
+      "Concierge": "Concierge",
+      "Contact Us": "Contact Us"
+    },
+    "titles": {
+      "dashboard": "Dashboard",
+      "rooms": "Room List",
+      "bookings": "Bookings",
+      "users": "Guest List",
+      "contact": "Concierge List"
+    }
+  }

@@ -6,18 +6,21 @@ import { CiCalendarDate } from "react-icons/ci";
 import { FaUser } from "react-icons/fa";
 import { IoExtensionPuzzleOutline } from "react-icons/io5";
 import { useNavigate } from "react-router";
+import { useTranslation } from 'react-i18next';
 
 export default function SidebarList() {
+
+    const { t } = useTranslation();
 
     const [activeIndex, setActiveIndex] = useState(0);
     const navigate = useNavigate();
 
     const links = [
-        { icon: <RiLayoutMasonryFill className="icos" />, label: "Dashboard", path: "/dashboard" },
-        { icon: <IoKeyOutline className="icos" />, label: "Room", path: "/dashboard/rooms" },
-        { icon: <CiCalendarDate className="icos" />, label: "Bookings", path: "/dashboard/bookings" },
-        { icon: <FaUser className="icos" />, label: "Guest", path: "/dashboard/users" },
-        { icon: <IoExtensionPuzzleOutline className="icos" />, label: "Concierge", path: "/dashboard/contact" },
+      { icon: <RiLayoutMasonryFill className="icos" />, label: t("sidebar.Dashboard"), path: "/dashboard" },
+      { icon: <IoKeyOutline className="icos" />, label: t("sidebar.Room"), path: "/dashboard/rooms" },
+      { icon: <CiCalendarDate className="icos" />, label: t("sidebar.Bookings"), path: "/dashboard/bookings" },
+      { icon: <FaUser className="icos" />, label: t("sidebar.Guest"), path: "/dashboard/users" },
+      { icon: <IoExtensionPuzzleOutline className="icos" />, label: t("sidebar.Concierge"), path: "/dashboard/contact" },
     ];
 
     const handleClick = (index, path) => {

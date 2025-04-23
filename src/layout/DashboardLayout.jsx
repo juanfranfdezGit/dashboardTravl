@@ -5,14 +5,12 @@ import Navbar from "../components/Navbar";
 export default function DashboardLayout() {
     
     return (
-        <div>
+        <>
           <Sidebar />
-          <div>
-            <Navbar />
-            <main>
-              <Outlet />
-            </main>
-          </div>
-        </div>
+          <Navbar />
+          <main>
+            <Outlet />
+          </main>
+        </>
       );
 }

@@ -1,0 +1,17 @@
+{
+    "sidebar": {
+      "Dashboard": "Dashboard",
+      "Room": "Habitaciones",
+      "Bookings": "Reservas",
+      "Guest": "Clientes",
+      "Concierge": "Empleados",
+      "Contact Us": "Contactanos"
+    },
+    "titles": {
+      "dashboard": "Dashboard",
+      "bookings": "Reservas",
+      "rooms": "Lista de Habitaciones",
+      "users": "Lista de Clientes",
+      "contact": "Lista de Empleados"
+    }
+  }

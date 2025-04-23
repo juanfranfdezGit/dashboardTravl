@@ -1,13 +1,17 @@
 import styled from "styled-components"
 import Button from "../common/Button";
+import { useTranslation } from 'react-i18next';
 
 export default function Card({ name, mail, image }) {
+
+    const { t } = useTranslation();
+
     return (
         <StyledCard>
             <img src={image} alt="photo" />
             <h3>{name}</h3>
             <p>{mail}</p>
-            <Button type='solid' text='Contact Us' />
+            <Button type='solid' text={t("sidebar.Contact Us")} />
         </StyledCard>
     )
 }
