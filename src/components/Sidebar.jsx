@@ -26,5 +26,5 @@ const StyledSidebar = styled.div`
     width: 20vw;
     height: 100vh;
     background: var(--white);
-    box-shadow: 13px 3px 40px #00000005;
+    box-shadow: 13px 3px 40px var(--shadows);
 `;

@@ -13,5 +13,11 @@
       "bookings": "Bookings",
       "users": "Guest List",
       "contact": "Concierge List"
+    },
+    "dashboard": {
+      "New Bookings": "New Bookings",
+      "Scheduled Room": "Scheduled Room",
+      "Check In": "Check In",
+      "Check Out": "Check Out"
     }
   }

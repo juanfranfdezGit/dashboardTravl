@@ -1,10 +1,11 @@
 import styled from 'styled-components';
+import CardsDashboard from '../components/dashboard/dashboard/cards';
 
 export default function Dashboard() {
     
     return (
         <StyledDashboard>
-            <h3>DASHBOARD</h3>
+            <CardsDashboard />
         </ StyledDashboard>
     )
 }
@@ -18,4 +19,5 @@ const StyledDashboard = styled.div`
     margin-left: 20vw;
     overflow-y: scroll;
     position: relative;
+    padding: 2rem;
 `;

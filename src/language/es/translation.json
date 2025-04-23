@@ -13,5 +13,11 @@
       "rooms": "Lista de Habitaciones",
       "users": "Lista de Clientes",
       "contact": "Lista de Empleados"
+    },
+    "dashboard": {
+      "New Bookings": "Nuevas Reservas",
+      "Scheduled Room": "Habitacions Reservadas",
+      "Check In": "Check In",
+      "Check Out": "Check Out"
     }
   }
