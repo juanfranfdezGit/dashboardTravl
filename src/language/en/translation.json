@@ -36,5 +36,10 @@
       "Room Type": "Room Type",
       "Status": "Status",
       "View Notes": "View Notes"
+    },
+    "rooms": {
+      "All Rooms": "All Rooms",
+      "Active Employees": "Active Employees",
+      "Inactive Employees": "Inactive Employees"
     }
   }

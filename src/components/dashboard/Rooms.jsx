@@ -1,22 +1,25 @@
 import styled from 'styled-components';
+import RoomsActions from './rooms/RoomsActions';
+import RoomTable from './rooms/RoomsTable';
 
 export default function Rooms() {
     
     return (
         <StyledRooms>
-            <h3>Rooms</h3>
+            <RoomsActions />
+            <RoomTable />
         </ StyledRooms>
     )
 }
 
 const StyledRooms = styled.div`
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-wrap: wrap;
+    flex-direction: column;  
+    justify-content: flex-start;
     width: 80vw;
     margin-left: 20vw;
     overflow-y: scroll;
     position: relative;
     gap: 2rem;
+    height: 80vh;
 `;

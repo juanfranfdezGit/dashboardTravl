@@ -1,0 +1,102 @@
+[
+    {
+      "id": "#000123456",
+      "Name": "Deluxe A-91223",
+      "Bed Type": "Double Bed",
+      "Room Floor": "Floor A-1",
+      "Facilities": "AC, Shower, Double Bed, Towel, Bathup, Coffee Set, LED TV, Wifi",
+      "Rate": "145",
+      "image": "/assets/images/room01.jpg",
+      "Status": "Available"
+    },
+    {
+      "id": "#000123457",
+      "Name": "Superior B-82344",
+      "Bed Type": "Queen Bed",
+      "Room Floor": "Floor B-2",
+      "Facilities": "AC, Shower, Queen Bed, Towel, LED TV, Wifi, Mini Bar",
+      "Rate": "130",
+      "image": "/assets/images/room02.webp",
+      "Status": "Booked"
+    },
+    {
+      "id": "#000123458",
+      "Name": "Executive C-73412",
+      "Bed Type": "King Bed",
+      "Room Floor": "Floor C-3",
+      "Facilities": "AC, Bathup, King Bed, Towel, Coffee Set, LED TV, Wifi, Safe Box",
+      "Rate": "180",
+      "image": "/assets/images/room03.jpg",
+      "Status": "Available"
+    },
+    {
+      "id": "#000123459",
+      "Name": "Standard D-61289",
+      "Bed Type": "Single Bed",
+      "Room Floor": "Floor D-1",
+      "Facilities": "Fan, Shower, Single Bed, Towel, LED TV, Wifi",
+      "Rate": "90",
+      "image": "/assets/images/room01.jpg",
+      "Status": "booked"
+    },
+    {
+      "id": "#000123460",
+      "Name": "Suite E-45671",
+      "Bed Type": "King Bed",
+      "Room Floor": "Floor E-5",
+      "Facilities": "AC, Bathup, King Bed, Jacuzzi, Coffee Set, LED TV, Wifi, Balcony",
+      "Rate": "250",
+      "image": "/assets/images/room02.webp",
+      "Status": "Available"
+    },
+    {
+      "id": "#000123461",
+      "Name": "Deluxe F-37891",
+      "Bed Type": "Double Bed",
+      "Room Floor": "Floor F-2",
+      "Facilities": "AC, Shower, Double Bed, Towel, LED TV, Wifi, Mini Fridge",
+      "Rate": "150",
+      "image": "/assets/images/room03.jpg",
+      "Status": "Booked"
+    },
+    {
+      "id": "#000123462",
+      "Name": "Economy G-24911",
+      "Bed Type": "Single Bed",
+      "Room Floor": "Floor G-1",
+      "Facilities": "Fan, Shower, Single Bed, Towel, Wifi",
+      "Rate": "75",
+      "image": "/assets/images/room01.jpg",
+      "Status": "Available"
+    },
+    {
+      "id": "#000123463",
+      "Name": "Presidential H-10567",
+      "Bed Type": "King Bed",
+      "Room Floor": "Penthouse",
+      "Facilities": "AC, Bathup, King Bed, Jacuzzi, Office Desk, LED TV, Wifi, Butler Service",
+      "Rate": "500",
+      "image": "/assets/images/room02.webp",
+      "Status": "Booked"
+    },
+    {
+      "id": "#000123464",
+      "Name": "Superior I-89981",
+      "Bed Type": "Queen Bed",
+      "Room Floor": "Floor I-3",
+      "Facilities": "AC, Shower, Queen Bed, Towel, Coffee Set, LED TV, Wifi",
+      "Rate": "135",
+      "image": "/assets/images/room03.jpg",
+      "Status": "Available"
+    },
+    {
+      "id": "#000123465",
+      "Name": "Standard J-77830",
+      "Bed Type": "Double Bed",
+      "Room Floor": "Floor J-1",
+      "Facilities": "Fan, Shower, Double Bed, Towel, LED TV",
+      "Rate": "110",
+      "image": "/assets/images/room01.jpg",
+      "Status": "Booked"
+    }
+  ]

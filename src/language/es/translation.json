@@ -36,5 +36,10 @@
       "Room Type": "Tipo Habitación",
       "Status": "Estado",
       "View Notes": "Ver Notas"
+    },
+    "rooms": {
+      "All Rooms": "Todas las Habitacones",
+      "Active Employees": "Empleado Activo",
+      "Inactive Employees": "Empleado Inactivo"
     }
   }
