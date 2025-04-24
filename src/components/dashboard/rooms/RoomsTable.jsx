@@ -31,7 +31,7 @@ export default function RoomTable() {
                 <p>{room.Name}</p>
               </div>
             </td>
-            <td><p>{t("rooms.Bed Type")}</p></td>
+            <td><p>{t(`rooms.${room["Bed Type"]}`)}</p></td>
             <td><p>{room["Room Floor"]}</p></td>
             <td><p>{room.Facilities}</p></td>
             <td><p>${room.Rate} /{t("rooms.Night")}</p></td>

@@ -9,8 +9,8 @@ export default function RoomsActions() {
 
     const actions = [
         { text: t("rooms.All Rooms") },
-        { text: t("rooms.Active Employees") },
-        { text: t("rooms.Inactive Employees") },
+        { text: t("rooms.Available") },
+        { text: t("rooms.Booked") },
     ];
 
     const handleClick = (index) => {

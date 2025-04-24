@@ -39,7 +39,16 @@
     },
     "rooms": {
       "All Rooms": "Todas las Habitacones",
-      "Active Employees": "Empleado Activo",
-      "Inactive Employees": "Empleado Inactivo"
+      "Room Name": "Nombre Habitación",
+      "Bed Type": "Tipo de Cama",
+      "Room Floor": "Planta",
+      "Facilities": "Servicios",
+      "Rate": "Valoración",
+      "Status": "Estado",
+      "Double Bed": "Cama Doble",
+      "Single Bed": "Cama Simple",
+      "Night": "Noche",
+      "Available": "Disponible",
+      "Booked": "Reservada"
     }
   }

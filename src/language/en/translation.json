@@ -39,7 +39,16 @@
     },
     "rooms": {
       "All Rooms": "All Rooms",
-      "Active Employees": "Active Employees",
-      "Inactive Employees": "Inactive Employees"
+      "Room Name": "Room Name",
+      "Bed Type": "Bed Type",
+      "Room Floor": "Room Floor",
+      "Facilities": "Facilities",
+      "Rate": "Rate",
+      "Status": "Status",
+      "Double Bed": "Double Bed",
+      "Single Bed": "Single Bed",
+      "Night": "Night",
+      "Available": "Available",
+      "Booked": "Booked"
     }
   }

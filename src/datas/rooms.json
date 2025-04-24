@@ -12,9 +12,9 @@
     {
       "id": "#000123457",
       "Name": "Superior B-82344",
-      "Bed Type": "Queen Bed",
+      "Bed Type": "Single Bed",
       "Room Floor": "Floor B-2",
-      "Facilities": "AC, Shower, Queen Bed, Towel, LED TV, Wifi, Mini Bar",
+      "Facilities": "AC, Shower, Single Bed, Towel, LED TV, Wifi, Mini Bar",
       "Rate": "130",
       "image": "/assets/images/room02.webp",
       "Status": "Booked"
@@ -22,9 +22,9 @@
     {
       "id": "#000123458",
       "Name": "Executive C-73412",
-      "Bed Type": "King Bed",
+      "Bed Type": "Single Bed",
       "Room Floor": "Floor C-3",
-      "Facilities": "AC, Bathup, King Bed, Towel, Coffee Set, LED TV, Wifi, Safe Box",
+      "Facilities": "AC, Bathup, Single Bed, Towel, Coffee Set, LED TV, Wifi, Safe Box",
       "Rate": "180",
       "image": "/assets/images/room03.jpg",
       "Status": "Available"
@@ -37,14 +37,14 @@
       "Facilities": "Fan, Shower, Single Bed, Towel, LED TV, Wifi",
       "Rate": "90",
       "image": "/assets/images/room01.jpg",
-      "Status": "booked"
+      "Status": "Booked"
     },
     {
       "id": "#000123460",
       "Name": "Suite E-45671",
-      "Bed Type": "King Bed",
+      "Bed Type": "Single Bed",
       "Room Floor": "Floor E-5",
-      "Facilities": "AC, Bathup, King Bed, Jacuzzi, Coffee Set, LED TV, Wifi, Balcony",
+      "Facilities": "AC, Bathup, Single Bed, Jacuzzi, Coffee Set, LED TV, Wifi, Balcony",
       "Rate": "250",
       "image": "/assets/images/room02.webp",
       "Status": "Available"
@@ -72,9 +72,9 @@
     {
       "id": "#000123463",
       "Name": "Presidential H-10567",
-      "Bed Type": "King Bed",
+      "Bed Type": "Single Bed",
       "Room Floor": "Penthouse",
-      "Facilities": "AC, Bathup, King Bed, Jacuzzi, Office Desk, LED TV, Wifi, Butler Service",
+      "Facilities": "AC, Bathup, Single Bed, Jacuzzi, Office Desk, LED TV, Wifi, Butler Service",
       "Rate": "500",
       "image": "/assets/images/room02.webp",
       "Status": "Booked"
@@ -82,9 +82,9 @@
     {
       "id": "#000123464",
       "Name": "Superior I-89981",
-      "Bed Type": "Queen Bed",
+      "Bed Type": "Single Bed",
       "Room Floor": "Floor I-3",
-      "Facilities": "AC, Shower, Queen Bed, Towel, Coffee Set, LED TV, Wifi",
+      "Facilities": "AC, Shower, Single Bed, Towel, Coffee Set, LED TV, Wifi",
       "Rate": "135",
       "image": "/assets/images/room03.jpg",
       "Status": "Available"
