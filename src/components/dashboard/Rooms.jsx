@@ -18,4 +18,5 @@ const StyledRooms = styled.div`
     margin-left: 20vw;
     overflow-y: scroll;
     position: relative;
+    gap: 2rem;
 `;

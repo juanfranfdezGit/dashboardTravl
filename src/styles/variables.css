@@ -1,6 +1,7 @@
 :root {
     --black: #111;
     --grey: #F8F8F8;
+    --grey-dark: #727272;
     --white: #fdfdfd;
 
     --main-color: #135846;
@@ -9,4 +10,13 @@
     --secondary-color-light: #FFEDEC;
 
     --shadows: #00000005;
+    
+    --booked: #E8FFEE;
+    --booked-text: #5AD07A;
+    --refund: #FFEDEC;
+    --refund-text: #E23428;
+    --canceled: #575757;
+    --canceled-text: #BEBEBE;
+    --pending: #E2E2E2;
+    --pending-text: #6D6D6D;
 }

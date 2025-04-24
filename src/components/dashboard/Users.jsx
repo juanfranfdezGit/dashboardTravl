@@ -1,21 +1,24 @@
 import styled from 'styled-components';
+import UserActions from './users/UserActions';
+import UserTable from './users/UserTable';
 
 export default function Users() {
-    
     return (
         <StyledUsers>
-            <h3>Users</h3>
+            <UserActions />
+            <UserTable />
         </ StyledUsers>
     )
 }
 
 const StyledUsers = styled.div`
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-wrap: wrap;
+    flex-direction: column;  
+    justify-content: flex-start;
     width: 80vw;
     margin-left: 20vw;
     overflow-y: scroll;
     position: relative;
+    gap: 2rem;
+    height: 80vh;
 `;

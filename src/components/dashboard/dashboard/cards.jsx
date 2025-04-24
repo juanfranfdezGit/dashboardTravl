@@ -101,6 +101,11 @@ const StyledCardDashboard = styled.div`
             align-items: flex-start;
             justify-content: center;
             gap: 4px;
+
+            p {
+                font-size: .8rem;
+                opacity: .7;
+            }
         }
     }
 `;

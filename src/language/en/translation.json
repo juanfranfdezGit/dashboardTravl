@@ -19,5 +19,22 @@
       "Scheduled Room": "Scheduled Room",
       "Check In": "Check In",
       "Check Out": "Check Out"
+    },
+    "users": {
+      "All Guests": "All Guests",
+      "Pending": "Pending",
+      "Booked": "Booked",
+      "Canceled": "Canceled",
+      "Refund": "Refund",
+      "Newest": "Newest",
+      "01 November 2025 - 30 November 2025": "01 November 2025 - 30 November 2025",
+      "Guest": "Guest",
+      "Order Date": "Order Date",
+      "Check In": "Check In",
+      "Check Out": "Check Out",
+      "Special Request": "Special Request",
+      "Room Type": "Room Type",
+      "Status": "Status",
+      "View Notes": "View Notes"
     }
   }

@@ -11,6 +11,7 @@ import Bookings from './components/dashboard/Bookings';
 import Users from './components/dashboard/Users';
 import Contact from './components/dashboard/Contact';
 import Rooms from './components/dashboard/Rooms';
+import UsersDetails from './components/dashboard/UsersDetails';
 
 import ProtectedRoute from './routes/protectedRoute';
 import { LoginProvider } from './context/loginContext';
@@ -30,6 +31,7 @@ const router = createBrowserRouter([
       { path: 'bookings', element: <ProtectedRoute><Bookings /></ProtectedRoute> },
       { path: 'rooms', element: <ProtectedRoute><Rooms /></ProtectedRoute> },
       { path: 'users', element: <ProtectedRoute><Users /></ProtectedRoute> },
+      { path: 'users/:id', element: <ProtectedRoute><UsersDetails /></ProtectedRoute> },
       { path: 'contact', element: <ProtectedRoute><Contact /></ProtectedRoute> },
     ]
   }
