@@ -15,8 +15,8 @@ const StyledDashboard = styled.div`
     justify-content: center;
     align-items: flex-start;
     flex-wrap: wrap;
-    width: 80vw;
-    margin-left: 20vw;
+    width: 84vw;
+    margin-left: 16vw;
     overflow-y: scroll;
     position: relative;
     padding: 2rem;

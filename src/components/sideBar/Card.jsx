@@ -21,7 +21,7 @@ const StyledCard = styled.div `
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 80%;
+    width: 100%;
     gap: 12px;
     box-shadow: 0 0 10px var(--black);
     border-radius: 14px;

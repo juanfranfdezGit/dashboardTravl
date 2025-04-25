@@ -18,8 +18,8 @@ const NavbarStyled = styled.div `
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    width: 80vw;
-    margin-left: 20vw;
+    width: 86vw;
+    margin-left: 16vw;
     background: var(--white);
     box-shadow: 13px 3px 40px #00000005;
     min-height: 120px;

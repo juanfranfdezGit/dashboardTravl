@@ -16,8 +16,8 @@ const StyledRooms = styled.div`
     display: flex;
     flex-direction: column;  
     justify-content: flex-start;
-    width: 80vw;
-    margin-left: 20vw;
+    width: 84vw;
+    margin-left: 16vw;
     overflow-y: scroll;
     position: relative;
     gap: 2rem;

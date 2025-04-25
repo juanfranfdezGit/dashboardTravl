@@ -23,7 +23,7 @@ const StyledSidebar = styled.div`
     padding: 3rem;
     left: 0;
     top: 0;
-    width: 20vw;
+    width: 16vw;
     height: 100vh;
     background: var(--white);
     box-shadow: 13px 3px 40px var(--shadows);

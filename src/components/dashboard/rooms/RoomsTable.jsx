@@ -141,7 +141,7 @@ const StyledUserTable = styled.table`
     th:nth-child(1), td:nth-child(1) { width: 280px; } 
     th:nth-child(2), td:nth-child(2) { width: 150px; } 
     th:nth-child(3), td:nth-child(3) { width: 150px; } 
-    th:nth-child(4), td:nth-child(4) { width: 380px; } 
+    th:nth-child(4), td:nth-child(4) { width: 380px; padding-right: 30px; } 
     th:nth-child(5), td:nth-child(5) { width: 120px; } 
     th:nth-child(6), td:nth-child(6) { width: 140px; }
     th:nth-child(7), td:nth-child(7) { width: 60px; }  

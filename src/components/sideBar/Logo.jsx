@@ -45,7 +45,7 @@ const Container = styled.div`
       }
 
       .logoSpan {
-        font-size: 1rem;
+        font-size: .7rem;
         opacity: .5;
         text-transform: capitalize;
       }
