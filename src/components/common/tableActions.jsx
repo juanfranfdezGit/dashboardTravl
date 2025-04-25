@@ -12,48 +12,39 @@ export default function TableActions() {
     const { t } = useTranslation();
     const [activeIndex, setActiveIndex] = useState(0);
 
-    const GuestActions = [
-        { text: t("guest.All Guests") },
-        { text: t("guest.Pending") },
-        { text: t("guest.Booked") },
-        { text: t("guest.Canceled") },
-        { text: t("guest.Refund") },
-    ];
-
-    const RoomsActions = [
-        { text: t("rooms.All Rooms") },
-        { text: t("rooms.Available") },
-        { text: t("rooms.Booked") },
-    ]
-
-    const handleClick = (index) => {
-        setActiveIndex(index);
+    const sectionActions = {
+        guest: [
+            { text: t("guest.All Guests") },
+            { text: t("guest.Pending") },
+            { text: t("guest.Booked") },
+            { text: t("guest.Canceled") },
+            { text: t("guest.Refund") },
+        ],
+        rooms: [
+            { text: t("rooms.All Rooms") },
+            { text: t("rooms.Available") },
+            { text: t("rooms.Booked") },
+        ],
+        employees: [
+            { text: t("employees.All Employees") },
+            { text: t("employees.Active Employees") },
+            { text: t("employees.Inactive Employees") },
+        ],
     };
 
+    const actions = sectionActions[section] || [];
 
     return (
         <StyledTableActions>
-            {section === "rooms" ? (
-                RoomsActions.map((action, index) => (
-                    <li
-                        key={index}
-                        className={`${activeIndex === index ? "active" : ""}`}
-                        onClick={() => handleClick(index)}
-                    >
-                        {action.text}
-                    </li>
-                ))
-            ) : (
-                GuestActions.map((action, index) => (
-                    <li
-                        key={index}
-                        className={`${activeIndex === index ? "active" : ""}`}
-                        onClick={() => handleClick(index)}
-                    >
-                        {action.text}
-                    </li>
-                ))
-            )}
+            {actions.map((action, index) => (
+                <li
+                    key={index}
+                    className={activeIndex === index ? "active" : ""}
+                    onClick={() => setActiveIndex(index)}
+                >
+                    {action.text}
+                </li>
+            ))}
         </StyledTableActions>
     )
 }

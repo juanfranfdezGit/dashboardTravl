@@ -11,8 +11,9 @@
       "dashboard": "Dashboard",
       "rooms": "Room List",
       "bookings": "Bookings",
-      "users": "Guest List",
-      "contact": "Concierge List"
+      "guest": "Guest List",
+      "employees": "Concierge List",
+      "Guest Details": "Guest Details"
     },
     "dashboard": {
       "New Bookings": "New Bookings",
@@ -68,5 +69,41 @@
       "Office Desk": "Office Desk",
       "Balcony": "Balcony",
       "Floor": "Floor"
+    },
+    "employees": {
+      "All Employees": "All Employees",
+      "Active Employees": "Active Employees",
+      "Inactive Employees": "Inactive Employees",
+      "Name": "Name",
+      "Job Desk": "Job Desk",
+      "Schedule": "Schedule",
+      "Contact": "Contact",
+      "Status": "Status",
+      "Joined on": "Joined on",
+      "Active": "Active",
+      "Inactive": "Inactive",
+      "Monday": "Monday",
+      "Tuesday": "Tuesday",
+      "Wednesday": "Wednesday",
+      "Thursday": "Thursday",
+      "Friday": "Friday",
+      "Saturday": "Saturday",
+      "Sunday": "Sunday",
+      "Answering guest inquiries": "Answering guest inquiries",
+      "Directing phone calls": "Directing phone calls",
+      "Coordinating travel plans": "Coordinating travel plans",
+      "and more": "and more",
+      "Room cleaning management": "Room cleaning management",
+      "Inventory checks": "Inventory checks",
+      "Guest feedback coordination": "Guest feedback coordination",
+      "Guest check-in/check-out": "Guest check-in/check-out",
+      "Front desk operations": "Front desk operations",
+      "Issue resolution": "Issue resolution",
+      "Security monitoring": "Security monitoring",
+      "Night shift supervision": "Night shift supervision",
+      "Managing restaurant bookings": "Managing restaurant bookings",
+      "Serving VIP guests": "Serving VIP guests",
+      "Handling dietary requests": "Handling dietary requests",
+      "Hotel maintenance": "Hotel maintenance"
     }
   }

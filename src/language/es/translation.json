@@ -11,8 +11,9 @@
       "dashboard": "Dashboard",
       "bookings": "Reservas",
       "rooms": "Lista de Habitaciones",
-      "users": "Lista de Clientes",
-      "contact": "Lista de Empleados"
+      "guest": "Lista de Clientes",
+      "employees": "Lista de Empleados",
+      "Guest Details": "Detalles de Cliente"
     },
     "dashboard": {
       "New Bookings": "Nuevas Reservas",
@@ -68,5 +69,41 @@
       "Office Desk": "Escritorio",
       "Balcony": "Balcon",
       "Floor": "Planta"
+    },
+    "employees": {
+      "All Employees": "Todos los Empleados",
+      "Active Employees": "Empleados Activos",
+      "Inactive Employees": "Empleados Inactivos",
+      "Name": "Nombre",
+      "Job Desk": "Puesto de Trabajo",
+      "Schedule": "Calendario",
+      "Contact": "Contacto",
+      "Status": "Estado",
+      "Joined on": "Incorporación: ",
+      "Active": "Activo",
+      "Inactive": "Inactivo",
+      "Monday": "Lunes",
+      "Tuesday": "Martes",
+      "Wednesday": "Miércoles",
+      "Thursday": "Jueves",
+      "Friday": "Viernes",
+      "Saturday": "Sábado",
+      "Sunday": "Domingo",
+      "Answering guest inquiries": "Responder las consultas de los clientes",
+      "Directing phone calls": "Responder llamadas telefónicas",
+      "Coordinating travel plans": "Coordinar excursiones",
+      "and more": "y más",
+      "Room cleaning management": "Gestión de limpieza de habitaciones",
+      "Inventory checks": "Comprobar inventario",
+      "Guest feedback coordination": "Coordinar los comentarios de los clientes",
+      "Guest check-in/check-out": "Entrada y salida de clientes",
+      "Front desk operations": "Operaciones de recepción",
+      "Issue resolution": "Resolución de problemas",
+      "Security monitoring": "Seguridad",
+      "Night shift supervision": "Supervisión del turno de noche",
+      "Managing restaurant bookings": "Gestionar reservas en restaurantes",
+      "Serving VIP guests": "Servir a clientes VIP",
+      "Handling dietary requests": "Manejo de solicitudes dietéticas",
+      "Hotel maintenance": "Mantenimiento del hotel"
     }
   }

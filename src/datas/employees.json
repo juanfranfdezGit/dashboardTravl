@@ -1,0 +1,137 @@
+[
+    {
+      "image": "https://randomuser.me/api/portraits/women/1.jpg",
+      "name": "María Carey",
+      "id": "12341225",
+      "joined": "Aug 2th 2017",
+      "job desk": [
+        "Answering guest inquiries",
+        "Directing phone calls",
+        "Coordinating travel plans",
+        "and more"
+      ],
+      "schedule": ["Monday", "Friday"],
+      "contact": "123 2345 1234",
+      "status": "Active"
+    },
+    {
+      "image": "https://randomuser.me/api/portraits/men/2.jpg",
+      "name": "John Smith",
+      "id": "12341226",
+      "joined": "Mar 15th 2019",
+      "job desk": [
+        "Room cleaning management",
+        "Inventory checks",
+        "Guest feedback coordination"
+      ],
+      "schedule": ["Tuesday", "Saturday"],
+      "contact": "321 7654 9876",
+      "status": "Active"
+    },
+    {
+      "image": "https://randomuser.me/api/portraits/women/3.jpg",
+      "name": "Anna Johnson",
+      "id": "12341227",
+      "joined": "Dec 1st 2020",
+      "job desk": [
+        "Guest check-in/check-out",
+        "Front desk operations",
+        "Issue resolution"
+      ],
+      "schedule": ["Monday", "Wednesday"],
+      "contact": "456 1234 7890",
+      "status": "Inactive"
+    },
+    {
+      "image": "https://randomuser.me/api/portraits/men/4.jpg",
+      "name": "Liam Davis",
+      "id": "12341228",
+      "joined": "Jul 23rd 2018",
+      "job desk": [
+        "Security monitoring",
+        "Night shift supervision"
+      ],
+      "schedule": ["Thursday", "Sunday"],
+      "contact": "987 6543 2101",
+      "status": "Active"
+    },
+    {
+      "image": "https://randomuser.me/api/portraits/women/5.jpg",
+      "name": "Emily Wilson",
+      "id": "12341229",
+      "joined": "Jan 10th 2016",
+      "job desk": [
+        "Managing restaurant bookings",
+        "Serving VIP guests"
+      ],
+      "schedule": ["Wednesday", "Saturday"],
+      "contact": "654 3210 9876",
+      "status": "Active"
+    },
+    {
+      "image": "https://randomuser.me/api/portraits/men/6.jpg",
+      "name": "Noah Martinez",
+      "id": "12341230",
+      "joined": "May 5th 2021",
+      "job desk": [
+        "Handling dietary requests",
+        "Hotel maintenance"
+      ],
+      "schedule": ["Tuesday", "Friday"],
+      "contact": "321 8888 2222",
+      "status": "Active"
+    },
+    {
+      "image": "https://randomuser.me/api/portraits/men/7.jpg",
+      "name": "Oliver Brown",
+      "id": "12341231",
+      "joined": "Oct 30th 2015",
+      "job desk": [
+        "Answering guest inquiries",
+        "Issue resolution"
+      ],
+      "schedule": ["Monday", "Thursday"],
+      "contact": "222 3333 4444",
+      "status": "Active"
+    },
+    {
+      "image": "https://randomuser.me/api/portraits/women/8.jpg",
+      "name": "Sophia Miller",
+      "id": "12341232",
+      "joined": "Nov 18th 2020",
+      "job desk": [
+        "Inventory checks",
+        "Guest feedback coordination",
+        "Front desk operations"
+      ],
+      "schedule": ["Friday", "Sunday"],
+      "contact": "111 2222 3333",
+      "status": "Inactive"
+    },
+    {
+      "image": "https://randomuser.me/api/portraits/women/9.jpg",
+      "name": "Isabella Anderson",
+      "id": "12341233",
+      "joined": "Feb 8th 2022",
+      "job desk": [
+        "Managing restaurant bookings",
+        "Handling dietary requests"
+      ],
+      "schedule": ["Wednesday", "Saturday"],
+      "contact": "333 4444 5555",
+      "status": "Active"
+    },
+    {
+      "image": "https://randomuser.me/api/portraits/men/10.jpg",
+      "name": "William Thomas",
+      "id": "12341234",
+      "joined": "Sep 3rd 2014",
+      "job desk": [
+        "Night shift supervision",
+        "Hotel maintenance"
+      ],
+      "schedule": ["Monday", "Friday"],
+      "contact": "777 9999 0000",
+      "status": "Active"
+    }
+  ]
