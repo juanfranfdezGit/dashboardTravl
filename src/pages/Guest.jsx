@@ -1,12 +1,12 @@
 import styled from 'styled-components';
-import UserActions from './users/UserActions';
-import UserTable from './users/UserTable';
+import TableActions from '../components/common/tableActions';
+import TableTemplate from '../components/common/tableTemplate'
 
 export default function Users() {
     return (
         <StyledUsers>
-            <UserActions />
-            <UserTable />
+            <TableActions />
+            <TableTemplate />
         </ StyledUsers>
     )
 }

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useParams } from 'react-router-dom';
-import guestsData from '../../datas/guests.json';
+import guestsData from '../datas/guests.json';
 
 export default function UsersDetails() {
     

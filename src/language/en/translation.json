@@ -20,7 +20,7 @@
       "Check In": "Check In",
       "Check Out": "Check Out"
     },
-    "users": {
+    "guest": {
       "All Guests": "All Guests",
       "Pending": "Pending",
       "Booked": "Booked",

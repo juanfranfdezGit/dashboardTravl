@@ -1,13 +1,13 @@
 import styled from 'styled-components';
-import RoomsActions from './rooms/RoomsActions';
-import RoomTable from './rooms/RoomsTable';
+import TableActions from '../components/common/tableActions';
+import TableTemplate from '../components/common/tableTemplate'
 
 export default function Rooms() {
     
     return (
         <StyledRooms>
-            <RoomsActions />
-            <RoomTable />
+            <TableActions />
+            <TableTemplate />
         </ StyledRooms>
     )
 }

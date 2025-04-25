@@ -7,11 +7,11 @@ import './styles/index.css'
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import DashboardLayout from './layout/DashboardLayout';
-import Bookings from './components/dashboard/Bookings';
-import Users from './components/dashboard/Users';
-import Contact from './components/dashboard/Contact';
-import Rooms from './components/dashboard/Rooms';
-import UsersDetails from './components/dashboard/UsersDetails';
+import Bookings from './pages/Bookings';
+import Guest from './pages/Guest';
+import Employees from './pages/Employees';
+import Rooms from './pages/Rooms';
+import GuestDetails from './pages/GuestDetails';
 
 import ProtectedRoute from './routes/protectedRoute';
 import { LoginProvider } from './context/loginContext';
@@ -30,9 +30,9 @@ const router = createBrowserRouter([
       { index: true, element: <ProtectedRoute><Dashboard /></ProtectedRoute> },
       { path: 'bookings', element: <ProtectedRoute><Bookings /></ProtectedRoute> },
       { path: 'rooms', element: <ProtectedRoute><Rooms /></ProtectedRoute> },
-      { path: 'users', element: <ProtectedRoute><Users /></ProtectedRoute> },
-      { path: 'users/:id', element: <ProtectedRoute><UsersDetails /></ProtectedRoute> },
-      { path: 'contact', element: <ProtectedRoute><Contact /></ProtectedRoute> },
+      { path: 'guest', element: <ProtectedRoute><Guest /></ProtectedRoute> },
+      { path: 'guest/:id', element: <ProtectedRoute><GuestDetails /></ProtectedRoute> },
+      { path: 'employees', element: <ProtectedRoute><Employees /></ProtectedRoute> },
     ]
   }
 ]);

@@ -19,8 +19,8 @@ export default function SidebarList() {
       { icon: <RiLayoutMasonryFill className="icos" />, label: t("sidebar.Dashboard"), path: "/dashboard" },
       { icon: <IoKeyOutline className="icos" />, label: t("sidebar.Room"), path: "/dashboard/rooms" },
       { icon: <CiCalendarDate className="icos" />, label: t("sidebar.Bookings"), path: "/dashboard/bookings" },
-      { icon: <FaUser className="icos" />, label: t("sidebar.Guest"), path: "/dashboard/users" },
-      { icon: <IoExtensionPuzzleOutline className="icos" />, label: t("sidebar.Concierge"), path: "/dashboard/contact" },
+      { icon: <FaUser className="icos" />, label: t("sidebar.Guest"), path: "/dashboard/guest" },
+      { icon: <IoExtensionPuzzleOutline className="icos" />, label: t("sidebar.Concierge"), path: "/dashboard/employees" },
     ];
 
     const handleClick = (index, path) => {
