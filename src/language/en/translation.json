@@ -49,6 +49,24 @@
       "Single Bed": "Single Bed",
       "Night": "Night",
       "Available": "Available",
-      "Booked": "Booked"
+      "Booked": "Booked",
+      "AC": "AC",
+      "Shower": "Shower",
+      "Towel": "Towel",
+      "Bathup": "Bathup",
+      "Coffee Set": "Coffee Set",
+      "LED TV": "LED TV",
+      "LED": "LED",
+      "TV": "TV",
+      "Wifi": "Wifi",
+      "Mini Bar": "Mini Bar",
+      "Safe Box": "Safe Box",
+      "Mini Fridge": "Mini Fridge",
+      "Fan": "Fan",
+      "Butler Service": "Butler Service",
+      "Jacuzzi": "Jacuzzi",
+      "Office Desk": "Office Desk",
+      "Balcony": "Balcony",
+      "Floor": "Floor"
     }
   }

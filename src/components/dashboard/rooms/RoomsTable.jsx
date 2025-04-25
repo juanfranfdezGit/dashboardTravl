@@ -32,8 +32,12 @@ export default function RoomTable() {
               </div>
             </td>
             <td><p>{t(`rooms.${room["Bed Type"]}`)}</p></td>
-            <td><p>{room["Room Floor"]}</p></td>
-            <td><p>{room.Facilities}</p></td>
+            <td><p>{`${t("rooms.Floor")} ${room["Room Floor"]}`}</p></td>
+            <td className="facilities">
+              {room.Facilities.map((facility, index) => (
+                <span key={index}>{t(`rooms.${facility}`)}{index < room.Facilities.length - 1 ? ', ' : ''}</span>
+              ))}
+            </td>
             <td><p>${room.Rate} /{t("rooms.Night")}</p></td>
             <td>
               <p className={`status ${room.Status}`}>{t(`rooms.${room.Status}`)}</p>
@@ -79,6 +83,11 @@ const StyledUserTable = styled.table`
         vertical-align: middle;
 
         p {
+            margin: 2px 0;
+            font-size: 0.8rem;
+        }
+
+        span {
             margin: 2px 0;
             font-size: 0.8rem;
         }

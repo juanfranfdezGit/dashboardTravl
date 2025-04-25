@@ -1,102 +1,192 @@
 [
-    {
-      "id": "#000123456",
-      "Name": "Deluxe A-91223",
-      "Bed Type": "Double Bed",
-      "Room Floor": "Floor A-1",
-      "Facilities": "AC, Shower, Double Bed, Towel, Bathup, Coffee Set, LED TV, Wifi",
-      "Rate": "145",
-      "image": "/assets/images/room01.jpg",
-      "Status": "Available"
-    },
-    {
-      "id": "#000123457",
-      "Name": "Superior B-82344",
-      "Bed Type": "Single Bed",
-      "Room Floor": "Floor B-2",
-      "Facilities": "AC, Shower, Single Bed, Towel, LED TV, Wifi, Mini Bar",
-      "Rate": "130",
-      "image": "/assets/images/room02.webp",
-      "Status": "Booked"
-    },
-    {
-      "id": "#000123458",
-      "Name": "Executive C-73412",
-      "Bed Type": "Single Bed",
-      "Room Floor": "Floor C-3",
-      "Facilities": "AC, Bathup, Single Bed, Towel, Coffee Set, LED TV, Wifi, Safe Box",
-      "Rate": "180",
-      "image": "/assets/images/room03.jpg",
-      "Status": "Available"
-    },
-    {
-      "id": "#000123459",
-      "Name": "Standard D-61289",
-      "Bed Type": "Single Bed",
-      "Room Floor": "Floor D-1",
-      "Facilities": "Fan, Shower, Single Bed, Towel, LED TV, Wifi",
-      "Rate": "90",
-      "image": "/assets/images/room01.jpg",
-      "Status": "Booked"
-    },
-    {
-      "id": "#000123460",
-      "Name": "Suite E-45671",
-      "Bed Type": "Single Bed",
-      "Room Floor": "Floor E-5",
-      "Facilities": "AC, Bathup, Single Bed, Jacuzzi, Coffee Set, LED TV, Wifi, Balcony",
-      "Rate": "250",
-      "image": "/assets/images/room02.webp",
-      "Status": "Available"
-    },
-    {
-      "id": "#000123461",
-      "Name": "Deluxe F-37891",
-      "Bed Type": "Double Bed",
-      "Room Floor": "Floor F-2",
-      "Facilities": "AC, Shower, Double Bed, Towel, LED TV, Wifi, Mini Fridge",
-      "Rate": "150",
-      "image": "/assets/images/room03.jpg",
-      "Status": "Booked"
-    },
-    {
-      "id": "#000123462",
-      "Name": "Economy G-24911",
-      "Bed Type": "Single Bed",
-      "Room Floor": "Floor G-1",
-      "Facilities": "Fan, Shower, Single Bed, Towel, Wifi",
-      "Rate": "75",
-      "image": "/assets/images/room01.jpg",
-      "Status": "Available"
-    },
-    {
-      "id": "#000123463",
-      "Name": "Presidential H-10567",
-      "Bed Type": "Single Bed",
-      "Room Floor": "Penthouse",
-      "Facilities": "AC, Bathup, Single Bed, Jacuzzi, Office Desk, LED TV, Wifi, Butler Service",
-      "Rate": "500",
-      "image": "/assets/images/room02.webp",
-      "Status": "Booked"
-    },
-    {
-      "id": "#000123464",
-      "Name": "Superior I-89981",
-      "Bed Type": "Single Bed",
-      "Room Floor": "Floor I-3",
-      "Facilities": "AC, Shower, Single Bed, Towel, Coffee Set, LED TV, Wifi",
-      "Rate": "135",
-      "image": "/assets/images/room03.jpg",
-      "Status": "Available"
-    },
-    {
-      "id": "#000123465",
-      "Name": "Standard J-77830",
-      "Bed Type": "Double Bed",
-      "Room Floor": "Floor J-1",
-      "Facilities": "Fan, Shower, Double Bed, Towel, LED TV",
-      "Rate": "110",
-      "image": "/assets/images/room01.jpg",
-      "Status": "Booked"
-    }
-  ]
+  {
+    "id": "#000123456",
+    "Name": "Deluxe A-91223",
+    "Bed Type": "Double Bed",
+    "Room Floor": "A-1",
+    "Facilities": [
+      "AC", 
+      "Shower", 
+      "Double Bed", 
+      "Towel", 
+      "Bathup", 
+      "Coffee Set", 
+      "LED TV", 
+      "Wifi"
+    ],
+    "Rate": "145",
+    "image": "/assets/images/room01.jpg",
+    "Status": "Available",
+    "description": "A luxurious room with a double bed and all modern amenities. Perfect for a relaxing stay with a bathup, coffee set, and LED TV."
+  },
+  {
+    "id": "#000123457",
+    "Name": "Superior B-82344",
+    "Bed Type": "Single Bed",
+    "Room Floor": "B-2",
+    "Facilities": [
+      "AC", 
+      "Shower", 
+      "Single Bed", 
+      "Towel", 
+      "LED TV", 
+      "Wifi", 
+      "Mini Bar"
+    ],
+    "Rate": "130",
+    "image": "/assets/images/room02.webp",
+    "Status": "Booked",
+    "description": "A cozy room with a single bed and a mini bar. Ideal for solo travelers with all the basic comforts including a shower and LED TV."
+  },
+  {
+    "id": "#000123458",
+    "Name": "Executive C-73412",
+    "Bed Type": "Single Bed",
+    "Room Floor": "C-3",
+    "Facilities": [
+      "AC", 
+      "Bathup", 
+      "Single Bed", 
+      "Towel", 
+      "Coffee Set", 
+      "LED TV", 
+      "Wifi", 
+      "Safe Box"
+    ],
+    "Rate": "180",
+    "image": "/assets/images/room03.jpg",
+    "Status": "Available",
+    "description": "An executive room offering a single bed, bathup, and safe box for extra security. Includes a coffee set and LED TV for ultimate relaxation."
+  },
+  {
+    "id": "#000123459",
+    "Name": "Standard D-61289",
+    "Bed Type": "Single Bed",
+    "Room Floor": "D-1",
+    "Facilities": [
+      "Fan", 
+      "Shower", 
+      "Single Bed", 
+      "Towel", 
+      "LED", 
+      "TV", 
+      "Wifi"
+    ],
+    "Rate": "90",
+    "image": "/assets/images/room01.jpg",
+    "Status": "Booked",
+    "description": "A basic yet comfortable room with a single bed, fan, and shower. This room is equipped with WiFi and a TV for your convenience."
+  },
+  {
+    "id": "#000123460",
+    "Name": "Suite E-45671",
+    "Bed Type": "Single Bed",
+    "Room Floor": "E-5",
+    "Facilities": [
+      "AC", 
+      "Bathup", 
+      "Single Bed", 
+      "Jacuzzi", 
+      "Coffee Set", 
+      "LED TV", 
+      "Wifi", 
+      "Balcony"
+    ],
+    "Rate": "250",
+    "image": "/assets/images/room02.webp",
+    "Status": "Available",
+    "description": "A luxurious suite featuring a Jacuzzi and balcony with stunning views. Perfect for relaxation, complete with a coffee set, LED TV, and WiFi."
+  },
+  {
+    "id": "#000123461",
+    "Name": "Deluxe F-37891",
+    "Bed Type": "Double Bed",
+    "Room Floor": "F-2",
+    "Facilities": [
+      "AC", 
+      "Shower", 
+      "Double Bed", 
+      "Towel", 
+      "LED TV", 
+      "Wifi", 
+      "Mini Fridge"
+    ],
+    "Rate": "150",
+    "image": "/assets/images/room03.jpg",
+    "Status": "Booked",
+    "description": "A deluxe room with a double bed, mini fridge, and all essential amenities for a comfortable stay. Perfect for couples or small families."
+  },
+  {
+    "id": "#000123462",
+    "Name": "Economy G-24911",
+    "Bed Type": "Single Bed",
+    "Room Floor": "G-1",
+    "Facilities": [
+      "Fan", 
+      "Shower", 
+      "Single Bed", 
+      "Towel", 
+      "Wifi"
+    ],
+    "Rate": "75",
+    "image": "/assets/images/room01.jpg",
+    "Status": "Available",
+    "description": "An affordable room with a single bed, fan, and shower. This basic room is ideal for budget-conscious travelers seeking comfort."
+  },
+  {
+    "id": "#000123463",
+    "Name": "Presidential H-10567",
+    "Bed Type": "Single Bed",
+    "Room Floor": "Penthouse",
+    "Facilities": [
+      "AC", 
+      "Bathup", 
+      "Single Bed", 
+      "Jacuzzi", 
+      "Office Desk", 
+      "LED TV", 
+      "Wifi", 
+      "Butler Service"
+    ],
+    "Rate": "500",
+    "image": "/assets/images/room02.webp",
+    "Status": "Booked",
+    "description": "A grand penthouse suite with luxurious amenities including a Jacuzzi, office desk, and butler service. Perfect for business or leisure."
+  },
+  {
+    "id": "#000123464",
+    "Name": "Superior I-89981",
+    "Bed Type": "Single Bed",
+    "Room Floor": "I-3",
+    "Facilities": [
+      "AC", 
+      "Shower", 
+      "Single Bed", 
+      "Towel", 
+      "Coffee Set", 
+      "LED TV", 
+      "Wifi"
+    ],
+    "Rate": "135",
+    "image": "/assets/images/room03.jpg",
+    "Status": "Available",
+    "description": "A superior room with a single bed, coffee set, and modern amenities for a convenient stay. Enjoy the comfort of a shower and WiFi."
+  },
+  {
+    "id": "#000123465",
+    "Name": "Standard J-77830",
+    "Bed Type": "Double Bed",
+    "Room Floor": "J-1",
+    "Facilities": [
+      "Fan", 
+      "Shower", 
+      "Double Bed", 
+      "Towel", 
+      "LED TV"
+    ],
+    "Rate": "110",
+    "image": "/assets/images/room01.jpg",
+    "Status": "Booked",
+    "description": "A simple room with a double bed, fan, and shower. Equipped with a TV for entertainment and all necessary amenities for a pleasant stay."
+  }
+]

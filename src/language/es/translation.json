@@ -49,6 +49,24 @@
       "Single Bed": "Cama Simple",
       "Night": "Noche",
       "Available": "Disponible",
-      "Booked": "Reservada"
+      "Booked": "Reservada",
+      "AC": "AC",
+      "Shower": "Ducha",
+      "Towel": "Toallas",
+      "Bathup": "Gel de Baño",
+      "Coffee Set": "Puesto de Café",
+      "LED TV": "LED TV",
+      "LED": "LED",
+      "TV": "TV",
+      "Wifi": "Wifi",
+      "Mini Bar": "Mini Bar",
+      "Safe Box": "Caja Fuerte",
+      "Mini Fridge": "Mini Nevera",
+      "Fan": "Ventilador",
+      "Butler Service": "Servicio de Habitaciones",
+      "Jacuzzi": "Jacuzzi",
+      "Office Desk": "Escritorio",
+      "Balcony": "Balcon",
+      "Floor": "Planta"
     }
   }
