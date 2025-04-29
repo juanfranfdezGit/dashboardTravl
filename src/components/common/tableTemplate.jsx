@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { TbDotsVertical } from "react-icons/tb";
 import guestsData  from "../../datas/guests.json"
 import employeesData from "../../datas/employees.json"
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router"
 import { MdOutlinePhone } from "react-icons/md";
@@ -20,9 +20,6 @@ export default function TableTemplate({ filter }) {
     const { t } = useTranslation();
     const navigate = useNavigate();
     const dispatch = useDispatch();
-
-    const [guests] = useState(guestsData);
-    const [employees] = useState(employeesData);
 
     const { data: rooms, loading, error } = useSelector((state) => state.rooms);
 
@@ -106,8 +103,6 @@ export default function TableTemplate({ filter }) {
     }
 
     const headers = theads[section] || [];
-
-    console.log("Filter received:", filter);
 
     if (loading) {
         return <p>Loading...</p>;

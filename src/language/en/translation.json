@@ -107,5 +107,20 @@
       "Handling dietary requests": "Handling dietary requests",
       "Hotel maintenance": "Hotel maintenance",
       "Add Employee": "Add Employee"
+    },
+    "form": {
+      "Room Name": "Room Name",
+      "Bed Type": "Bed Type",
+      "Room Floor": "Room Floor",
+      "AC": "AC",
+      "Shower": "Shower",
+      "Double Bed": "Double Bed",
+      "Towel": "Towel",
+      "Bathup": "Bathup",
+      "Coffe Set": "Coffe Set",
+      "Wifi": "Wifi",
+      "Balcony": "Balcony",
+      "Add Room": "Add Room",
+      "Rate": "Rate"
     }
   }

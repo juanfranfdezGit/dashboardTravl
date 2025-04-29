@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { useState } from 'react';
 import TableActions from '../components/common/tableActions';
 import TableTemplate from '../components/common/tableTemplate';
+import EmployeeForm from '../components/common/EmployeeForm';
 
 export default function Contact() {
     
@@ -20,6 +21,7 @@ export default function Contact() {
         <StyledContact>
             <TableActions onAddClick={handleAddClick} onFilter={handleFilter}  />
             <TableTemplate filter={filter} />
+            {formActive && <EmployeeForm onClose={() => setFormActive(false)} />}
         </ StyledContact>
     )
 }

@@ -67,7 +67,7 @@
       "Butler Service": "Servicio de Habitaciones",
       "Jacuzzi": "Jacuzzi",
       "Office Desk": "Escritorio",
-      "Balcony": "Balcon",
+      "Balcony": "Balcón",
       "Floor": "Planta",
       "Add Room": "Añadir Habitación"
     },
@@ -107,5 +107,20 @@
       "Handling dietary requests": "Manejo de solicitudes dietéticas",
       "Hotel maintenance": "Mantenimiento del hotel",
       "Add Employee": "Añadir Empleado"
+    },
+    "form": {
+      "Room Name": "Nombre de Habitación",
+      "Bed Type": "Tipo de Cama",
+      "Room Floor": "Planta",
+      "AC": "AC",
+      "Shower": "Ducha",
+      "Double Bed": "Cama Doble",
+      "Towel": "Toallas",
+      "Bathup": "Gel de Baño",
+      "Coffe Set": "Puesto de Café",
+      "Wifi": "Wifi",
+      "Balcony": "Balcón",
+      "Add Room": "Añadir Habitación",
+      "Rate": "Precio"
     }
   }
