@@ -2,13 +2,13 @@ import { createSlice } from '@reduxjs/toolkit';
 import roomsData from '../datas/rooms.json';
 
 const initialState = {
-  data: [],
+  data: [],     
   loading: false,
-  error: null,
+  error: null,   
 };
 
 const roomSlice = createSlice({
-  name: 'data',
+  name: 'rooms',
   initialState,
   reducers: {
     fetchRoomDataStart: (state) => {
@@ -29,12 +29,17 @@ const roomSlice = createSlice({
 export const { fetchRoomDataStart, fetchRoomDataSuccess, fetchRoomDataFailure } = roomSlice.actions;
 
 export const fetchRoomData = () => async (dispatch) => {
-    dispatch(fetchRoomDataStart());
+    dispatch(fetchRoomDataStart()); 
     try {
-        dispatch(fetchRoomDataSuccess(roomsData));
+        const response = roomsData;  
+        dispatch(fetchRoomDataSuccess(response));
     } catch (error) {
         dispatch(fetchRoomDataFailure(error.message)); 
     }
 };
+
+export const selectAllRooms = (state) => state.rooms.data;  
+export const selectRoomsLoading = (state) => state.rooms.loading;  
+export const selectRoomsError = (state) => state.rooms.error; 
 
 export default roomSlice.reducer;
