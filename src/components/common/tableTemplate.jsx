@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { fetchRoomData } from "../../redux/roomSlice";
 
-export default function UserTable() {
+export default function TableTemplate({ filter }) {
     
     const location = useLocation();
     const pathname = location?.pathname || '';
@@ -27,11 +27,31 @@ export default function UserTable() {
     const { data: rooms, loading, error } = useSelector((state) => state.rooms);
 
     useEffect(() => {
-        if (rooms.length === 0) {
+        if (!rooms.length === 0) {
           dispatch(fetchRoomData());
         }
     }, [dispatch, rooms.length]);
 
+    const filteredRooms = (rooms || []).filter((room) => {
+        if (filter === "All Rooms") {
+            return true;
+        } else if (filter === "Available") {
+            return room.Status === "Available";
+        } else if (filter === "Disponible") {
+            return room.Status === "Available";
+        } else if (filter === "Reservada") {
+            return room.Status === "Booked";
+        } else if (filter === "Booked") {
+            return room.Status === "Booked";
+        }
+        return true;
+    });
+
+    useEffect(() => {
+        if (rooms.length === 0) {
+            dispatch(fetchRoomData());
+        }
+    }, [dispatch, rooms.length]);
 
     const theads = {
         guest: [
@@ -65,6 +85,8 @@ export default function UserTable() {
 
     const headers = theads[section] || [];
 
+    console.log("Filter received:", filter);
+
     if (loading) {
         return <p>Loading...</p>;
     }
@@ -74,7 +96,7 @@ export default function UserTable() {
     }
 
     return (
-        <StyledUserTable>
+        <StyledTableTemplate>
             <thead>
                 <tr>
                     {headers.map((header, index) => (
@@ -114,7 +136,7 @@ export default function UserTable() {
                     ));
 
                 case "rooms":
-                    return rooms.map((room, index) => (
+                    return filteredRooms.map((room, index) => (
                     <tr key={index}>
                         <td className="img-name">
                             <img src={room.image} alt={room.Name} />
@@ -179,11 +201,11 @@ export default function UserTable() {
                 }
             })()}
             </tbody>
-        </StyledUserTable>
+        </StyledTableTemplate>
     )
 }
 
-const StyledUserTable = styled.table`
+const StyledTableTemplate = styled.table`
     width: 100%;
     border-collapse: collapse;
     font-family: 'Poppins', sans-serif;

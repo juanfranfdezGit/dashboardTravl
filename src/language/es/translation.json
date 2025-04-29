@@ -68,7 +68,8 @@
       "Jacuzzi": "Jacuzzi",
       "Office Desk": "Escritorio",
       "Balcony": "Balcon",
-      "Floor": "Planta"
+      "Floor": "Planta",
+      "Add Room": "Añadir Habitación"
     },
     "employees": {
       "All Employees": "Todos los Empleados",
@@ -104,6 +105,7 @@
       "Managing restaurant bookings": "Gestionar reservas en restaurantes",
       "Serving VIP guests": "Servir a clientes VIP",
       "Handling dietary requests": "Manejo de solicitudes dietéticas",
-      "Hotel maintenance": "Mantenimiento del hotel"
+      "Hotel maintenance": "Mantenimiento del hotel",
+      "Add Employee": "Añadir Empleado"
     }
   }

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useState } from "react";
 import { useLocation } from "react-router"
 
-export default function TableActions() {
+export default function TableActions({ onAddClick, onFilter }) {
 
     const location = useLocation();
     const pathname = location?.pathname || '';
@@ -24,11 +24,13 @@ export default function TableActions() {
             { text: t("rooms.All Rooms") },
             { text: t("rooms.Available") },
             { text: t("rooms.Booked") },
+            { text: t("rooms.Add Room"), isAdd: true }
         ],
         employees: [
             { text: t("employees.All Employees") },
             { text: t("employees.Active Employees") },
             { text: t("employees.Inactive Employees") },
+            { text: t("employees.Add Employee"), isAdd: true }
         ],
     };
 
@@ -39,8 +41,15 @@ export default function TableActions() {
             {actions.map((action, index) => (
                 <li
                     key={index}
-                    className={activeIndex === index ? "active" : ""}
-                    onClick={() => setActiveIndex(index)}
+                    className={!action.isAdd && activeIndex === index ? "active" : action.isAdd ? "add-button" : ""}
+                    onClick={() => {
+                        if (action.isAdd) {
+                            onAddClick?.(); 
+                        } else {
+                            setActiveIndex(index);
+                            onFilter?.(action.text);
+                        }
+                    }}
                 >
                     {action.text}
                 </li>
@@ -72,6 +81,16 @@ const StyledTableActions = styled.ul`
             border-bottom: 2px solid var(--main-color);
             padding: 4px 32px 5px 32px;
             opacity: 1;
+        }
+
+        &.add-button {
+            margin-left: auto;
+            margin-right: 40px;
+            border: none;
+            color: var(--white);
+            background: var(--main-color);
+            border-radius: 8px;
+            padding: 8px 32px;
         }
     }
 `;
