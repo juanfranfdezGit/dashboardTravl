@@ -2,12 +2,14 @@ import styled from "styled-components";
 import { useTranslation } from 'react-i18next';
 import { TbDotsVertical } from "react-icons/tb";
 import guestsData  from "../../datas/guests.json"
-import roomsData  from "../../datas/rooms.json"
 import employeesData from "../../datas/employees.json"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router"
 import { MdOutlinePhone } from "react-icons/md";
+import { useDispatch, useSelector } from 'react-redux';
+
+import { fetchRoomData } from "../../redux/roomSlice";
 
 export default function UserTable() {
     
@@ -16,12 +18,20 @@ export default function UserTable() {
     const section = pathname.split('/').pop() || 'dashboard';
 
     const { t } = useTranslation();
-
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const [guests] = useState(guestsData);
-    const [rooms] = useState(roomsData);
     const [employees] = useState(employeesData);
+
+    const { data: rooms, loading, error } = useSelector((state) => state.rooms);
+
+    useEffect(() => {
+        if (rooms.length === 0) {
+          dispatch(fetchRoomData());
+        }
+    }, [dispatch, rooms.length]);
+
 
     const theads = {
         guest: [
@@ -54,6 +64,14 @@ export default function UserTable() {
     }
 
     const headers = theads[section] || [];
+
+    if (loading) {
+        return <p>Loading...</p>;
+    }
+
+    if (error) {
+        return <p>Error: {error}</p>;
+    }
 
     return (
         <StyledUserTable>

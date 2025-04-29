@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
 import './styles/index.css'
 
@@ -16,6 +17,7 @@ import GuestDetails from './pages/GuestDetails';
 import ProtectedRoute from './routes/protectedRoute';
 import { LoginProvider } from './context/loginContext';
 import { LanguageProvider } from './context/languageContext';
+import store from './redux/store';
 
 const router = createBrowserRouter([
   { path: '/', element: <Login /> },
@@ -41,7 +43,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <LoginProvider>
       <LanguageProvider>
-        <RouterProvider router={router} />
+        <Provider store={store}>
+          <RouterProvider router={router} />
+        </Provider>,
       </LanguageProvider>
     </LoginProvider>
   </React.StrictMode>

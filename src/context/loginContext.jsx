@@ -1,21 +1,22 @@
-import { createContext, useState, useContext, useEffect } from 'react';
+import { createContext, useReducer, useEffect, useContext } from 'react';
+import { loginReducer, initialState } from '../reducer/loginReducer'; 
 
 const LoginContext = createContext();
 
 export function LoginProvider({ children }) {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [state, dispatch] = useReducer(loginReducer, initialState); 
 
   useEffect(() => {
     const storedLogin = localStorage.getItem('isLogged') === 'true';
-    setIsAuthenticated(storedLogin);
+    dispatch({ type: 'INIT', payload: storedLogin }); 
   }, []);
 
   const login = (username, password) => {
     const user = { username: 'admin', password: 'admin' };
-  
+
     if (username === user.username && password === user.password) {
       localStorage.setItem('isLogged', 'true');
-      setIsAuthenticated(true);
+      dispatch({ type: 'LOGIN' });
       return true;
     } else {
       return false;
@@ -24,11 +25,11 @@ export function LoginProvider({ children }) {
 
   const logout = () => {
     localStorage.removeItem('isLogged');
-    setIsAuthenticated(false);
+    dispatch({ type: 'LOGOUT' });
   };
 
   return (
-    <LoginContext.Provider value={{ isAuthenticated, login, logout }}>
+    <LoginContext.Provider value={{ isAuthenticated: state.isAuthenticated, login, logout }}>
       {children}
     </LoginContext.Provider>
   );
