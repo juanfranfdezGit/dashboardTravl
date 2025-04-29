@@ -35,14 +35,36 @@ export default function TableTemplate({ filter }) {
     const filteredRooms = (rooms || []).filter((room) => {
         if (filter === "All Rooms") {
             return true;
-        } else if (filter === "Available") {
+        } else if (filter === "Available" || filter === "Disponible") {
             return room.Status === "Available";
-        } else if (filter === "Disponible") {
-            return room.Status === "Available";
-        } else if (filter === "Reservada") {
+        } else if (filter === "Booked" || filter === "Reservada") {
             return room.Status === "Booked";
-        } else if (filter === "Booked") {
-            return room.Status === "Booked";
+        }
+        return true;
+    });
+
+    const filteredGuest = (guestsData || []).filter((guest) => {
+        if (filter === "All Guests") {
+            return true;
+        } else if (filter === "Pending" || filter === "Pendiente") {
+            return guest.status === "Pending";
+        } else if (filter === "Booked" || filter === "Reservado") {
+            return guest.status === "Booked";
+        } else if (filter === "Canceled" || filter === "Cancelado") {
+            return guest.status === "Canceled";
+        } else if (filter === "Refund" || filter === "Reembolso") {
+            return guest.status === "Refund";
+        }
+        return true;
+    });
+
+    const filteredEmployee = (employeesData || []).filter((employee) => {
+        if (filter === "All Employees") {
+            return true;
+        } else if (filter === "Active Employees" || filter === "Empleados Activos") {
+            return employee.status === "Active";
+        } else if (filter === "Inactive Employees" || filter === "Empleados Inactivos") {
+            return employee.status === "Inactive";
         }
         return true;
     });
@@ -108,7 +130,7 @@ export default function TableTemplate({ filter }) {
             {(() => {
                 switch (section) {
                 case "guest":
-                    return guests.map((guest, index) => (
+                    return filteredGuest.map((guest, index) => (
                     <tr key={index} onClick={() => navigate(`/dashboard/guest/${guest.id}`)}>
                         <td className="img-name">
                             <img src={guest.image} alt={guest.name} />
@@ -161,7 +183,7 @@ export default function TableTemplate({ filter }) {
                     ));
 
                 case "employees":
-                    return employees.map((emp, index) => (
+                    return filteredEmployee.map((emp, index) => (
                     <tr key={index}>
                         <td className="img-name">
                             <img src={emp.image} alt={emp.name} />

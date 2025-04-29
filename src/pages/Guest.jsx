@@ -1,12 +1,20 @@
 import styled from 'styled-components';
+import { useState } from 'react';
 import TableActions from '../components/common/tableActions';
 import TableTemplate from '../components/common/tableTemplate'
 
 export default function Users() {
+
+    const [filter, setFilter] = useState("");
+
+    const handleFilter = (filter) => {
+        setFilter(filter);
+    };
+
     return (
         <StyledUsers>
-            <TableActions />
-            <TableTemplate />
+            <TableActions onFilter={handleFilter} />
+            <TableTemplate filter={filter} />
         </ StyledUsers>
     )
 }

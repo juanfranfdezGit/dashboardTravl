@@ -8,7 +8,6 @@ export default function Rooms() {
 
     const [formActive, setFormActive] = useState(false);
     const [filter, setFilter] = useState("");
-
     
     const handleAddClick = () => {
         setFormActive(true);
