@@ -153,25 +153,29 @@ export default function TableTemplate({ filter }) {
                     ));
 
                 case "rooms":
+                    console.log(filteredRooms)
                     return filteredRooms.map((room, index) => (
                     <tr key={index}>
                         <td className="img-name">
-                            <img src={room.image} alt={room.Name} />
+                            <img src={room.image} alt={room.name} />
                             <div>
-                                <p className="id">{room.id}</p>
-                                <p>{room.Name}</p>
+                                <p className="roomNumber">{room.roomNumber}</p>
+                                <p>{room.name}</p>
                             </div>
                         </td>
-                        <td><p>{t(`rooms.${room["Bed Type"]}`)}</p></td>
-                        <td><p>{`${t("rooms.Floor")} ${room["Room Floor"]}`}</p></td>
+                        <td><p>{t(`rooms.${room.bedType}`)}</p></td>
+                        <td><p>{`${t("rooms.Floor")} ${room.roomFloor}`}</p></td>
                         <td className="facilities">
-                            {room.Facilities.map((facility, index) => (
-                                <span key={index}>{t(`rooms.${facility}`)}{index < room.Facilities.length - 1 ? ', ' : ''}</span>
-                            ))}
+                        {(room.facilities || []).map((facility, index) => (
+                            <span key={index}>
+                            {t(`rooms.${facility}`)}
+                            {index < (room.facilities?.length || 0) - 1 ? ', ' : ''}
+                            </span>
+                        ))}
                         </td>
-                        <td><p>${room.Rate} /{t("rooms.Night")}</p></td>
+                        <td><p>${room.rate} /{t("rooms.Night")}</p></td>
                         <td>
-                            <p className={`status room ${room.Status}`}>{t(`rooms.${room.Status}`)}</p>
+                            <p className={`status room ${room.status}`}>{t(`rooms.${room.status}`)}</p>
                         </td>
                         <td className="options"><TbDotsVertical /></td>
                     </tr>
