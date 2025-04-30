@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import roomsData from '../datas/rooms.json';
 
 const initialState = {
@@ -7,47 +7,48 @@ const initialState = {
   error: null,   
 };
 
+export const fetchRoomData = createAsyncThunk(
+  'rooms/fetchRoomData',
+  async () => {
+    const local = localStorage.getItem("rooms");
+    const response = local ? JSON.parse(local) : roomsData;
+    return response;
+  }
+);
+
 const roomSlice = createSlice({
   name: 'rooms',
   initialState,
   reducers: {
-    fetchRoomDataStart: (state) => {
-        state.loading = true;
-        state.error = null;
-    },
-    fetchRoomDataSuccess: (state, action) => {
-        state.loading = false;
-        state.data = Array.isArray(action.payload) ? action.payload : [];
-    },
-    fetchRoomDataFailure: (state, action) => {
-        state.loading = false;
-        state.error = action.payload;
-    },
     addRoom: (state, action) => {
-        if (!Array.isArray(state.data)) {
-          state.data = [];
-        }
-        state.data.push(action.payload);
-        localStorage.setItem("rooms", JSON.stringify(state.data));
+      if (!Array.isArray(state.data)) {
+        state.data = [];
+      }
+      state.data.push(action.payload);
+      localStorage.setItem("rooms", JSON.stringify(state.data)); 
     }
   },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchRoomData.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchRoomData.fulfilled, (state, action) => {
+        state.loading = false;
+        state.data = Array.isArray(action.payload) ? action.payload : [];
+      })
+      .addCase(fetchRoomData.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      });
+  }
 });
 
-export const { fetchRoomDataStart, fetchRoomDataSuccess, fetchRoomDataFailure, addRoom } = roomSlice.actions;
+export const { addRoom } = roomSlice.actions;
 
-export const fetchRoomData = () => async (dispatch) => {
-    dispatch(fetchRoomDataStart()); 
-    try {
-        const local = localStorage.getItem("rooms");
-        const response = local ? JSON.parse(local) : roomsData;
-        dispatch(fetchRoomDataSuccess(response));
-    } catch (error) {
-        dispatch(fetchRoomDataFailure(error.message)); 
-    }
-};
-
-export const selectAllRooms = (state) => state.rooms.data || [];   
-export const selectRoomsLoading = (state) => state.rooms.loading || [];  
-export const selectRoomsError = (state) => state.rooms.error || []; 
+export const selectAllRooms = (state) => state.rooms.data || [];
+export const selectRoomsLoading = (state) => state.rooms.loading || false;
+export const selectRoomsError = (state) => state.rooms.error || null;
 
 export default roomSlice.reducer;

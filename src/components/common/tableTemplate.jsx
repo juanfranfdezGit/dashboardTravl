@@ -33,9 +33,9 @@ export default function TableTemplate({ filter }) {
         if (filter === "All Rooms") {
             return true;
         } else if (filter === "Available" || filter === "Disponible") {
-            return room.Status === "Available";
+            return room.status === "Available";
         } else if (filter === "Booked" || filter === "Reservada") {
-            return room.Status === "Booked";
+            return room.status === "Booked";
         }
         return true;
     });

@@ -11,7 +11,7 @@ export default function RoomForm({ onClose }) {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const facilities = form.querySelectorAll('input[name="Facilities"]:checked');
+        const facilities = e.target.querySelectorAll('input[name="facilities"]:checked');
         const facilitiesValues = Array.from(facilities).map(f => f.value);
 
         const roomData = {
@@ -26,7 +26,7 @@ export default function RoomForm({ onClose }) {
             status: "Available",
             description: e.target["description"].value
         }
-
+        console.log(roomData);
         dispatch(addRoom(roomData))
         onClose()
     };
@@ -52,18 +52,22 @@ export default function RoomForm({ onClose }) {
                     <label htmlFor="roomFloor">{t("form.Room Floor")}</label>
                 </div>
                 <div className="checkbox">
-                    <label><input type="checkbox" id="facilites" name="facilities" value="AC" /> {t("form.AC")}</label>
-                    <label><input type="checkbox" id="facilites" name="facilities" value="Shower" /> {t("form.Shower")}</label>
-                    <label><input type="checkbox" id="facilites" name="facilities" value="Double Bed" /> {t("form.Double Bed")}</label>
-                    <label><input type="checkbox" id="facilites" name="facilities" value="Towel" /> {t("form.Towel")}</label>
-                    <label><input type="checkbox" id="facilites" name="facilities" value="Bathup" /> {t("form.Bathup")}</label>
-                    <label><input type="checkbox" id="facilites" name="facilities" value="Coffe Set" /> {t("form.Coffe Set")}</label>
-                    <label><input type="checkbox" id="facilites" name="facilities" value="Wifi" /> {t("form.Wifi")}</label>
-                    <label><input type="checkbox" id="facilites" name="facilities" value="Balcony" /> {t("form.Balcony")}</label>
+                    <label><input type="checkbox" id="AC" name="facilities" value="AC" /> {t("form.AC")}</label>
+                    <label><input type="checkbox" id="Shower" name="facilities" value="Shower" /> {t("form.Shower")}</label>
+                    <label><input type="checkbox" id="Double Bed" name="facilities" value="Double Bed" /> {t("form.Double Bed")}</label>
+                    <label><input type="checkbox" id="Towel" name="facilities" value="Towel" /> {t("form.Towel")}</label>
+                    <label><input type="checkbox" id="Bathup" name="facilities" value="Bathup" /> {t("form.Bathup")}</label>
+                    <label><input type="checkbox" id="Coffe Set" name="facilities" value="Coffe Set" /> {t("form.Coffe Set")}</label>
+                    <label><input type="checkbox" id="Wifi" name="facilities" value="Wifi" /> {t("form.Wifi")}</label>
+                    <label><input type="checkbox" id="Balcony" name="facilities" value="Balcony" /> {t("form.Balcony")}</label>
                 </div>
                 <div>
                     <input type="number" name="rate" id="rate" placeholder=" " required />
                     <label htmlFor="rate">{t("form.Rate")}</label>
+                </div>
+                <div>
+                    <textarea name="description" id="description" placeholder=" " required />
+                    <label htmlFor="description">{t("form.Description")}</label>
                 </div>
                 <div>
                     <input type="submit" id="Submit" value={t("form.Add Room")} />
@@ -83,7 +87,7 @@ const StyledRoomForm = styled.div `
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding-top: 10rem;
+    padding-top: 5rem;
 
     form {
         background: var(--white);
@@ -98,7 +102,7 @@ const StyledRoomForm = styled.div `
         .closebtn {
             position: absolute;
             right: 4rem;
-            top: 3rem;
+            top: 2rem;
             cursor: pointer;
             font-weight: 900;
             font-size: 1.5rem;
@@ -131,6 +135,15 @@ const StyledRoomForm = styled.div `
                 padding: 4px 8px;
                 font-size: 1rem;
                 font-family: poppins;
+            }
+
+            textarea {
+                resize: none;  
+                width: 100%;
+                padding: 4px 8px;
+                font-size: 1rem;
+                font-family: poppins;
+                line-height: 1.5;
             }
         }
 
@@ -177,7 +190,9 @@ const StyledRoomForm = styled.div `
         }
 
         input:focus + label,
-        input:not(:placeholder-shown) + label {
+        input:not(:placeholder-shown) + label,
+        textarea:focus + label,
+        textarea:not(:placeholder-shown) + label {
             opacity: 0;
         }
 
