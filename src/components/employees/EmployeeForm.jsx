@@ -1,36 +1,61 @@
 import styled from "styled-components";
-import { useState } from "react";
 import { useTranslation } from 'react-i18next';
+import { useDispatch } from "react-redux";
+import { addEmployee } from "../../redux/employeeSlice";
 
 export default function EmployeeForm({ onClose }) {
 
     const { t } = useTranslation();
+    const dispatch = useDispatch();
 
-    const [data, setData] = useState({});
-    const [err, setErr] = useState("");
+    function formatDate() {
+        const today = new Date();
+    
+        const monthNames = [
+            "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+            "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+        ];
+    
+        const day = today.getDate();
+        const month = monthNames[today.getMonth()];
+        const year = today.getFullYear();
+    
+        function getDaySuffix(day) {
+            if (day > 3 && day < 21) return 'th'; 
+            switch (day % 10) {
+                case 1: return 'st';
+                case 2: return 'nd';
+                case 3: return 'rd';
+                default: return 'th';
+            }
+        }
+    
+        const suffix = getDaySuffix(day);
+    
+        return `${month} ${day}${suffix} ${year}`;
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const form = e.target;
-        const formData = new FormData(form);
-
-        const jobDesk = form.querySelectorAll('input[name="JobDesk"]:checked');
+        const jobDesk = e.target.querySelectorAll('input[name="jobDesk"]:checked');
         const jobDeskValues = Array.from(jobDesk).map(f => f.value);
 
-        const Schedule = form.querySelectorAll('input[name="Schedule"]:checked');
-        const ScheduleValues = Array.from(Schedule).map(f => f.value);
+        const schedule = e.target.querySelectorAll('input[name="schedule"]:checked');
+        const scheduleValues = Array.from(schedule).map(f => f.value);
 
         const employeeData = {
-            name: formData.get("Room Name"),
-            bedType: formData.get("Bed Type"),
-            floor: formData.get("Room Floor"),
-            rate: formData.get("Rate"),
+            id: "0000124",
+            image: "https://randomuser.me/api/portraits/women/1.jpg",
+            name: e.target["employeeName"].value,
+            contact: e.target["contact"].value,
             jobDesk: jobDeskValues,
-            Schedule: ScheduleValues,
+            schedule: scheduleValues,
+            joined: formatDate(),
+            status: "Active"
         }
 
-        setData(employeeData);
+        dispatch(addEmployee(employeeData))
         console.log("Employee Data Submitted:", employeeData);
         onClose()
     };
@@ -41,28 +66,28 @@ export default function EmployeeForm({ onClose }) {
                 <p className="closebtn" onClick={onClose}>X</p>
                 <h2>{t("form.Add Employee")}</h2>
                 <div>
-                    <input type="text" name="Employee Name" id="Employee Name" placeholder=" " required />
-                    <label htmlFor="Employee Name">{t("form.Employee Name")}</label>
+                    <input type="text" name="employeeName" id="employeeName" placeholder=" " required />
+                    <label htmlFor="employeeName">{t("form.Employee Name")}</label>
                 </div>
                 <div>
-                    <input type="number" name="Contact" id="Contact" placeholder=" " required />
-                    <label htmlFor="Contact">{t("form.Contact")}</label>
+                    <input type="number" name="contact" id="contact" placeholder=" " required />
+                    <label htmlFor="contact">{t("form.Contact")}</label>
                 </div>
                 <div className="checkbox">
-                    <label><input type="checkbox" id="Facilites" name="Facilities" value="Answering Guest Inquiries" /> {t("form.Answering Guest Inquiries")}</label>
-                    <label><input type="checkbox" id="Facilites" name="Facilities" value="Directing Phone Calls" /> {t("form.Directing Phone Calls")}</label>
-                    <label><input type="checkbox" id="Facilites" name="Facilities" value="Inventory Checks" /> {t("form.Inventory Checks")}</label>
-                    <label><input type="checkbox" id="Facilites" name="Facilities" value="Front Desk Operation" /> {t("form.Front Desk Operation")}</label>
-                    <label><input type="checkbox" id="Facilites" name="Facilities" value="Hotel Maintenance" /> {t("form.Hotel Maintenance")}</label>
+                    <label><input type="checkbox" id="Answering Guest Inquiries" name="jobDesk" value="Answering Guest Inquiries" /> {t("form.Answering Guest Inquiries")}</label>
+                    <label><input type="checkbox" id="Directing Phone Calls" name="jobDesk" value="Directing Phone Calls" /> {t("form.Directing Phone Calls")}</label>
+                    <label><input type="checkbox" id="Inventory Checks" name="jobDesk" value="Inventory Checks" /> {t("form.Inventory Checks")}</label>
+                    <label><input type="checkbox" id="Front Desk Operation" name="jobDesk" value="Front Desk Operation" /> {t("form.Front Desk Operation")}</label>
+                    <label><input type="checkbox" id="Hotel Maintenance" name="jobDesk" value="Hotel Maintenance" /> {t("form.Hotel Maintenance")}</label>
                 </div>
                 <div className="checkbox">
-                    <label><input type="checkbox" id="Schedule" name="Schedule" value="Monday" /> {t("form.Monday")}</label>
-                    <label><input type="checkbox" id="Schedule" name="Schedule" value="Tuesday" /> {t("form.Tuesday")}</label>
-                    <label><input type="checkbox" id="Schedule" name="Schedule" value="Wednesday" /> {t("form.Wednesday")}</label>
-                    <label><input type="checkbox" id="Schedule" name="Schedule" value="Thursday" /> {t("form.Thursday")}</label>
-                    <label><input type="checkbox" id="Schedule" name="Schedule" value="Friday" /> {t("form.Friday")}</label>
-                    <label><input type="checkbox" id="Schedule" name="Schedule" value="Saturday" /> {t("form.Saturday")}</label>
-                    <label><input type="checkbox" id="Schedule" name="Schedule" value="Sunday" /> {t("form.Sunday")}</label>
+                    <label><input type="checkbox" id="Monday" name="schedule" value="Monday" /> {t("form.Monday")}</label>
+                    <label><input type="checkbox" id="Tuesday" name="schedule" value="Tuesday" /> {t("form.Tuesday")}</label>
+                    <label><input type="checkbox" id="Wednesday" name="schedule" value="Wednesday" /> {t("form.Wednesday")}</label>
+                    <label><input type="checkbox" id="Thursday" name="schedule" value="Thursday" /> {t("form.Thursday")}</label>
+                    <label><input type="checkbox" id="Friday" name="schedule" value="Friday" /> {t("form.Friday")}</label>
+                    <label><input type="checkbox" id="Saturday" name="schedule" value="Saturday" /> {t("form.Saturday")}</label>
+                    <label><input type="checkbox" id="Sunday" name="schedule" value="Sunday" /> {t("form.Sunday")}</label>
                 </div>
                 <div>
                     <input type="submit" id="Submit" value={t("form.Add Employee")} />

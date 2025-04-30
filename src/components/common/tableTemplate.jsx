@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { useTranslation } from 'react-i18next';
 import { TbDotsVertical } from "react-icons/tb";
-import guestsData  from "../../datas/guests.json"
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router"
@@ -10,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { fetchRoomData } from "../../redux/roomSlice";
 import { fetchEmployeeData } from "../../redux/employeeSlice";
+import { fetchGuestData } from "../../redux/guestSlice";
 
 export default function TableTemplate({ filter }) {
     
@@ -23,6 +23,7 @@ export default function TableTemplate({ filter }) {
 
     const { data: rooms, loading: roomsLoading, error: roomsError } = useSelector((state) => state.rooms);
     const { data: employees, loading: employeesLoading, error: employeesError } = useSelector((state) => state.employees);
+    const { data: guests, loading: guestsLoading, error: guestsError } = useSelector((state) => state.guests);
 
 
     const filteredRooms = (rooms || []).filter((room) => {
@@ -36,7 +37,7 @@ export default function TableTemplate({ filter }) {
         return true;
     });
 
-    const filteredGuest = (guestsData || []).filter((guest) => {
+    const filteredGuest = (guests || []).filter((guest) => {
         if (filter === "All Guests") {
             return true;
         } else if (filter === "Pending" || filter === "Pendiente") {
@@ -74,6 +75,12 @@ export default function TableTemplate({ filter }) {
         }
     }, [dispatch, rooms.length]);
 
+    useEffect(() => {
+        if (guests.length === 0) {
+            dispatch(fetchGuestData());
+        }
+    }, [dispatch, guests.length]);
+
     const theads = {
         guest: [
             { label: t("guest.Guest"), key: "guest" },
@@ -106,12 +113,12 @@ export default function TableTemplate({ filter }) {
 
     const headers = theads[section] || [];
 
-    if (roomsLoading || employeesLoading) {
+    if (roomsLoading || employeesLoading || guestsLoading) {
         return <p>Loading...</p>;
     }
     
-    if (roomsError || employeesError) {
-        return <p>Error: {roomsError || employeesError}</p>;
+    if (roomsError || employeesError || guestsError) {
+        return <p>Error: {roomsError || employeesError || guestsError}</p>;
     }
 
     return (
@@ -195,10 +202,10 @@ export default function TableTemplate({ filter }) {
                             </div>
                         </td>
                         <td>
-                            {emp["job desk"].map((task, i) => (
+                            {emp["jobDesk"].map((task, i) => (
                                 <span key={i}>
                                 {t(`employees.${task}`)}
-                                {i < emp["job desk"].length - 1 ? ", " : "."} {/* Reemplaza la coma por un punto en el último item */}
+                                {i < emp["jobDesk"].length - 1 ? ", " : "."} {/* Reemplaza la coma por un punto en el último item */}
                                 </span>
                             ))}
                         </td>

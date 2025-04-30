@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { useState } from 'react';
 import TableActions from '../components/common/tableActions';
 import TableTemplate from '../components/common/tableTemplate'
-import RoomForm from '../components/common/RoomForm';
+import RoomForm from '../components/rooms/RoomForm';
 
 export default function Rooms() {
 

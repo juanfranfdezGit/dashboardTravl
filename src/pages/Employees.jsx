@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { useState } from 'react';
 import TableActions from '../components/common/tableActions';
 import TableTemplate from '../components/common/tableTemplate';
-import EmployeeForm from '../components/common/EmployeeForm';
+import EmployeeForm from '../components/employees/EmployeeForm';
 
 export default function Contact() {
     

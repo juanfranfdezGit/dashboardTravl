@@ -59,6 +59,8 @@
       "LED TV": "LED TV",
       "LED": "LED",
       "TV": "TV",
+      "single": "Cama Simple",
+      "double": "Cama Doble",
       "Wifi": "Wifi",
       "Mini Bar": "Mini Bar",
       "Safe Box": "Caja Fuerte",
@@ -91,7 +93,9 @@
       "Saturday": "Sábado",
       "Sunday": "Domingo",
       "Answering guest inquiries": "Responder las consultas de los clientes",
+      "Answering Guest Inquiries": "Responder las consultas de los clientes",
       "Directing phone calls": "Responder llamadas telefónicas",
+      "Directing Phone Calls": "Responder llamadas telefónicas",
       "Coordinating travel plans": "Coordinar excursiones",
       "and more": "y más",
       "Room cleaning management": "Gestión de limpieza de habitaciones",
@@ -106,6 +110,7 @@
       "Serving VIP guests": "Servir a clientes VIP",
       "Handling dietary requests": "Manejo de solicitudes dietéticas",
       "Hotel maintenance": "Mantenimiento del hotel",
+      "Hotel Maintenance": "Mantenimiento del hotel",
       "Add Employee": "Añadir Empleado"
     },
     "form": {
