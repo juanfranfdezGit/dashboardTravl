@@ -87,10 +87,16 @@ const StyledTableActions = styled.ul`
             margin-left: auto;
             margin-right: 40px;
             border: none;
+            opacity: 1;
             color: var(--white);
-            background: var(--main-color);
+            background: var(--room-available);
             border-radius: 8px;
             padding: 8px 32px;
+            transition: all .5s;
+
+            &:hover {
+                box-shadow: 0 0 4px var(--black);
+            }
         }
     }
 `;

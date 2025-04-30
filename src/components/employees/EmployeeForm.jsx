@@ -107,7 +107,7 @@ const StyledEmployeeForm = styled.div `
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding-top: 10rem;
+    padding-top: 5rem;
 
     form {
         background: var(--white);
@@ -122,32 +122,51 @@ const StyledEmployeeForm = styled.div `
         .closebtn {
             position: absolute;
             right: 4rem;
-            top: 3rem;
+            top: 2rem;
             cursor: pointer;
             font-weight: 900;
             font-size: 1.5rem;
         }
 
         h2 {
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
         }
 
         div {
             position: relative;
             display: flex;
-            margin-bottom: 18px;
+            margin-bottom: 20px;
             width: 100%;
 
             label {
                 position: absolute;
                 left: 8px;
                 pointer-events: none;
-                top: 0;
+                top: 4px;
             }
 
             input {
                 width: 100%;
+                padding: 8px 12px;
+                border-radius: 4px;
+                border: 1px solid var(--overlay-back);
+            }
+
+            select {
+                width: 100%;
                 padding: 4px 8px;
+                font-size: 1rem;
+                font-family: poppins;
+                border-radius: 4px;
+            }
+
+            textarea {
+                resize: none;  
+                width: 100%;
+                padding: 4px 8px;
+                font-size: 1rem;
+                font-family: poppins;
+                line-height: 1.5;
             }
         }
 
@@ -156,11 +175,12 @@ const StyledEmployeeForm = styled.div `
             justify-content: center;
             align-items: center;
             gap: 20px;
-            border: 1px solid var(--pending-text);
             padding: 2rem;
             max-width: 50vw;
+            border: 1px solid var(--pending-text);
             flex-wrap: wrap;
-            
+            border-radius: 4px;
+
             label {
                 position: relative;
                 font-size: 1rem;
@@ -170,6 +190,7 @@ const StyledEmployeeForm = styled.div `
                 appearance: none;
                 width: 20px;
                 height: 20px;
+                padding: 6px;
                 border: 2px solid var(--pending-text);
                 border-radius: 4px;
                 cursor: pointer;
@@ -194,17 +215,25 @@ const StyledEmployeeForm = styled.div `
         }
 
         input:focus + label,
-        input:not(:placeholder-shown) + label {
+        input:not(:placeholder-shown) + label,
+        textarea:focus + label,
+        textarea:not(:placeholder-shown) + label {
             opacity: 0;
         }
 
         input[type="submit"] {
+            width: 40%;
+            margin: 12px auto;
             padding: 12px;
             color: var(--white);
             border: none;
-            background: var(--main-color);
+            background: var(--room-available);
             font-size: 1rem;
             cursor: pointer;
+
+            &:hover {
+                box-shadow: 0 0 4px var(--black);
+            }
         }
     }
 `;

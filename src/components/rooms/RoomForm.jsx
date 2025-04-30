@@ -109,25 +109,27 @@ const StyledRoomForm = styled.div `
         }
 
         h2 {
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
         }
 
         div {
             position: relative;
             display: flex;
-            margin-bottom: 18px;
+            margin-bottom: 20px;
             width: 100%;
 
             label {
                 position: absolute;
                 left: 8px;
                 pointer-events: none;
-                top: 0;
+                top: 4px;
             }
 
             input {
                 width: 100%;
-                padding: 4px 8px;
+                padding: 8px 12px;
+                border-radius: 4px;
+                border: 1px solid var(--overlay-back);
             }
 
             select {
@@ -135,6 +137,7 @@ const StyledRoomForm = styled.div `
                 padding: 4px 8px;
                 font-size: 1rem;
                 font-family: poppins;
+                border-radius: 4px;
             }
 
             textarea {
@@ -156,7 +159,8 @@ const StyledRoomForm = styled.div `
             padding: 2rem;
             max-width: 50vw;
             flex-wrap: wrap;
-            
+            border-radius: 4px;
+
             label {
                 position: relative;
                 font-size: 1rem;
@@ -166,6 +170,7 @@ const StyledRoomForm = styled.div `
                 appearance: none;
                 width: 20px;
                 height: 20px;
+                padding: 6px;
                 border: 2px solid var(--pending-text);
                 border-radius: 4px;
                 cursor: pointer;
@@ -197,12 +202,18 @@ const StyledRoomForm = styled.div `
         }
 
         input[type="submit"] {
+            width: 40%;
+            margin: 12px auto;
             padding: 12px;
             color: var(--white);
             border: none;
-            background: var(--main-color);
+            background: var(--room-available);
             font-size: 1rem;
             cursor: pointer;
+
+            &:hover {
+                box-shadow: 0 0 4px var(--black);
+            }
         }
     }
 `;
