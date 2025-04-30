@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { useTranslation } from 'react-i18next';
 import { TbDotsVertical } from "react-icons/tb";
 import guestsData  from "../../datas/guests.json"
-import employeesData from "../../datas/employees.json"
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router"
@@ -10,6 +9,7 @@ import { MdOutlinePhone } from "react-icons/md";
 import { useDispatch, useSelector } from 'react-redux';
 
 import { fetchRoomData } from "../../redux/roomSlice";
+import { fetchEmployeeData } from "../../redux/employeeSlice";
 
 export default function TableTemplate({ filter }) {
     
@@ -21,13 +21,9 @@ export default function TableTemplate({ filter }) {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const { data: rooms, loading, error } = useSelector((state) => state.rooms);
+    const { data: rooms, loading: roomsLoading, error: roomsError } = useSelector((state) => state.rooms);
+    const { data: employees, loading: employeesLoading, error: employeesError } = useSelector((state) => state.employees);
 
-    useEffect(() => {
-        if (!rooms.length === 0) {
-          dispatch(fetchRoomData());
-        }
-    }, [dispatch, rooms.length]);
 
     const filteredRooms = (rooms || []).filter((room) => {
         if (filter === "All Rooms") {
@@ -55,7 +51,7 @@ export default function TableTemplate({ filter }) {
         return true;
     });
 
-    const filteredEmployee = (employeesData || []).filter((employee) => {
+    const filteredEmployee = (employees || []).filter((employee) => {
         if (filter === "All Employees") {
             return true;
         } else if (filter === "Active Employees" || filter === "Empleados Activos") {
@@ -65,6 +61,12 @@ export default function TableTemplate({ filter }) {
         }
         return true;
     });
+    
+    useEffect(() => {
+        if (employees.length === 0) {
+          dispatch(fetchEmployeeData());
+        }
+    }, [dispatch, employees.length]);
 
     useEffect(() => {
         if (rooms.length === 0) {
@@ -104,12 +106,12 @@ export default function TableTemplate({ filter }) {
 
     const headers = theads[section] || [];
 
-    if (loading) {
+    if (roomsLoading || employeesLoading) {
         return <p>Loading...</p>;
     }
-
-    if (error) {
-        return <p>Error: {error}</p>;
+    
+    if (roomsError || employeesError) {
+        return <p>Error: {roomsError || employeesError}</p>;
     }
 
     return (
