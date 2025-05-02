@@ -2,12 +2,16 @@ import styled from "styled-components";
 import { useTranslation } from 'react-i18next';
 import { HiOutlineBars3BottomLeft } from "react-icons/hi2";
 import { useLocation, useParams } from "react-router"
+import guestsData from '../../datas/guests.json';
 
 export default function Title() {
 
+    
     const location = useLocation();
     const { id } = useParams();
     const { t } = useTranslation();
+    
+    const guest = guestsData.find(guest => guest.id.toString() === id);
 
     const pathname = location?.pathname;
     const section = pathname ? pathname.split('/').pop() || 'dashboard' : 'dashboard';
@@ -15,7 +19,10 @@ export default function Title() {
     return (
         <StyledTitle>
             <HiOutlineBars3BottomLeft className="ico" />
-            <h1>{id ? t('titles.Guest Details') : t(`titles.${section}`)}</h1>
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <h1>{id ? t('titles.Guest Details') : t(`titles.${section}`)}</h1>
+                {id ? <h2 style={{ fontSize: '1rem', fontWeight: '400', color: '#135846' }}>Guest / {guest.name}</h2> : ""}
+            </div>
         </StyledTitle>
     )
 }
