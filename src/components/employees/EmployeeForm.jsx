@@ -56,7 +56,6 @@ export default function EmployeeForm({ onClose }) {
         }
 
         dispatch(addEmployee(employeeData))
-        console.log("Employee Data Submitted:", employeeData);
         onClose()
     };
 

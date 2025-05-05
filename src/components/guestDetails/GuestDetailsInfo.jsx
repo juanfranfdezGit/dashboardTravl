@@ -17,17 +17,17 @@ export default function GuestDetailsInfo() {
         <StyledGuestDetailsInfo>
             <div className="guestInfo">
                 <img src={guest.image} alt={guest.name} />
-                <div>
+                <div className="guestDatas">
                     <h1>{guest.name}</h1>
                     <p>ID {guest.id}</p>
-                    <div>
-                        <FaPhoneAlt />
+                    <div className="datasIcos">
+                        <FaPhoneAlt className="phoneIco" />
                         <button><LuMessageSquareText /> Send Message</button>
                     </div>
                 </div>
                 <SlOptionsVertical className="infoIco" />
             </div>
-            <div>
+            <div className="chechInDiv">
                 <div>
                     <span>Check In</span>
                     <p>{guest.checkIn.date} | {guest.checkIn.hour}</p>
@@ -57,23 +57,66 @@ const StyledGuestDetailsInfo = styled.div `
         display: flex;
         width: 100%;
         gap: 32px;
-        margin-bottom: 20px;
+        margin-bottom: 32px;
 
         img {
             border-radius: 8px;
         }
 
-        h1 {
-            font: normal normal 600 30px/46px Poppins;
+        .guestDatas {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+            h1 {
+                font: normal normal 600 30px/46px Poppins;
+            }
+
+            p {
+                font: normal normal normal 14px/21px Poppins;
+                color: var(--main-color);
+            }
+
+            .datasIcos {
+                display: flex;
+                gap: 8px;
+
+                .phoneIco {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 40px;
+                    height: 40px;
+                    padding: 10px;
+                    border: 1px solid var(--main-color);
+                    border-radius: 8px;
+                    color: var(--main-color);
+                    cursor: pointer;
+                }
+
+                button {
+                    cursor: pointer;
+                    border-radius: 8px;
+                    border: 1px solid var(--main-color);
+                    background: var(--main-color);
+                    color: var(--white);
+                    padding: 0 20px;
+                    display: flex;
+                    gap: 8px;
+                    align-items: center;
+                }
+            }
+
         }
 
-        p {
-            font: normal normal normal 14px/21px Poppins;
-            color: var(--main-color);
-        }
 
         .infoIco {
             margin-left: auto;
         }
+    }
+
+    .chechInDiv {
+        display: flex;
+        gap: 60px;
     }
 `;
