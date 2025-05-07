@@ -1,0 +1,26 @@
+:root {
+    --black: #fdfdfd;
+    --grey: #1e1e1e;
+    --grey-dark: #aaaaaa;
+    --white: #111;
+
+    --main-color: #0F3D34;
+    --main-color-light: #1b2f2c;
+    --secondary-color: #FF7A66;
+    --secondary-color-light: #3d1d1a;
+
+    --shadows: #ffffff05;
+    --overlay-back: #ffffff40;
+
+    --booked: #294F3B;
+    --booked-text: #A8F1BC;
+    --refund: #3d1d1a;
+    --refund-text: #FF7A66;
+    --canceled: #aaaaaa;
+    --canceled-text: #575757;
+    --pending: #2d2d2d;
+    --pending-text: #c1c1c1;
+
+    --room-available: #A8F1BC;
+    --room-booked: #FF7A66;
+}

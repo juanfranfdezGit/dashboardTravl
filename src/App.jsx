@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { ThemeProvider } from './context/themeContext';
 
 import './styles/index.css'
 
@@ -41,12 +42,14 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <LoginProvider>
-      <LanguageProvider>
-        <Provider store={store}>
-          <RouterProvider router={router} />
-        </Provider>,
-      </LanguageProvider>
-    </LoginProvider>
+    <ThemeProvider>
+      <LoginProvider>
+        <LanguageProvider>
+            <Provider store={store}>
+              <RouterProvider router={router} />
+            </Provider>
+        </LanguageProvider>
+      </LoginProvider>
+    </ThemeProvider>
   </React.StrictMode>
 );
