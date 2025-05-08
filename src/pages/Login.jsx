@@ -49,7 +49,7 @@ export default function Login() {
                             <label htmlFor="password">Password</label>
                             <MdOutlinePassword className="inputIcon" />
                         </div>
-                        <Button type='solid' text='Login' />
+                        <Button type='submit' text='Login' />
                     </form>
                 </div>
             </ Container>
