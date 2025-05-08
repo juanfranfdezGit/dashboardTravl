@@ -1,11 +1,15 @@
 import styled from 'styled-components';
-import CardsDashboard from '../components/dashboard/dashboard/cards';
+import CardsDashboard from '../components/dashboard/Cards';
+import Calendar from '../components/dashboard/calendar';
+import Statistics from '../components/dashboard/Statistics';
 
 export default function Dashboard() {
     
     return (
         <StyledDashboard>
             <CardsDashboard />
+            <Calendar />
+            <Statistics />
         </ StyledDashboard>
     )
 }

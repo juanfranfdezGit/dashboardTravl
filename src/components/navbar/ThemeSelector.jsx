@@ -20,7 +20,7 @@ export default function ThemeSelector() {
 }
 
 const StyledThemeSelector = styled.div `
-    margin-right: 280px;
+    margin-right: 370px;
 
     button {
         width: 40px;
