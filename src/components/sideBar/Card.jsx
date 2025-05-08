@@ -25,7 +25,7 @@ const StyledCard = styled.div `
     gap: 12px;
     box-shadow: 0 0 10px var(--black);
     border-radius: 14px;
-    padding: 2rem;
+    padding: 2rem 1rem;
     text-align: center;
     margin-top: 40px;
 

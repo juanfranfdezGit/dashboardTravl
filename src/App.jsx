@@ -33,9 +33,9 @@ const router = createBrowserRouter([
       { index: true, element: <ProtectedRoute><Dashboard /></ProtectedRoute> },
       { path: 'bookings', element: <ProtectedRoute><Bookings /></ProtectedRoute> },
       { path: 'rooms', element: <ProtectedRoute><Rooms /></ProtectedRoute> },
-      { path: 'guest', element: <ProtectedRoute><Guest /></ProtectedRoute> },
-      { path: 'guest/:id', element: <ProtectedRoute><GuestDetails /></ProtectedRoute> },
-      { path: 'employees', element: <ProtectedRoute><Employees /></ProtectedRoute> },
+      { path: 'users', element: <ProtectedRoute><Guest /></ProtectedRoute> },
+      { path: 'users/:id', element: <ProtectedRoute><GuestDetails /></ProtectedRoute> },
+      { path: 'contact', element: <ProtectedRoute><Employees /></ProtectedRoute> },
     ]
   }
 ]);

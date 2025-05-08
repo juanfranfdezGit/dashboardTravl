@@ -1,20 +1,19 @@
 import styled from "styled-components";
-import { IoSearchOutline } from "react-icons/io5";
-import { CiHeart } from "react-icons/ci";
 import { CiMail } from "react-icons/ci";
 import { CiBellOn } from "react-icons/ci";
-import { BiMessageDetail } from "react-icons/bi";
+import { MdLogout } from "react-icons/md";
+import { useLogin } from '../../context/loginContext';
 
 export default function NavbarActions() {
     
+    const { logout } = useLogin();
+
     return (
         <StyledNavbarActions>
-            <li><IoSearchOutline className="ico"/></li>
-            <li><CiHeart className="ico"/></li>
             <li><CiMail className="ico"/><p className="numb">3</p></li>
             <li><CiBellOn className="ico"/><p className="numb">87</p></li>
-            <li><BiMessageDetail className="ico opacit"/></li>
-            <img src="/assets/portrait.jpg" alt="photo" />
+            <li><MdLogout className="ico" onClick={() => logout()} /></li>
+            <img src="/assets/portrait.jpg" alt="photo"  />
         </StyledNavbarActions>
     )
 }

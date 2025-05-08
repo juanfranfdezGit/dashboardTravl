@@ -3,16 +3,16 @@
       "Dashboard": "Dashboard",
       "Room": "Room",
       "Bookings": "Bookings",
-      "Guest": "Guest",
-      "Concierge": "Concierge",
+      "Users": "Users",
+      "Contact": "Contact",
       "Contact Us": "Contact Us"
     },
     "titles": {
       "dashboard": "Dashboard",
       "rooms": "Room List",
       "bookings": "Bookings",
-      "guest": "Guest List",
-      "employees": "Concierge List",
+      "users": "Users",
+      "contact": "Contact",
       "Guest Details": "Guest Details"
     },
     "dashboard": {

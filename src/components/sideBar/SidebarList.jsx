@@ -4,7 +4,7 @@ import { RiLayoutMasonryFill } from "react-icons/ri";
 import { IoKeyOutline } from "react-icons/io5";
 import { CiCalendarDate } from "react-icons/ci";
 import { FaUser } from "react-icons/fa";
-import { IoExtensionPuzzleOutline } from "react-icons/io5";
+import { CiMail } from "react-icons/ci";
 import { useNavigate } from "react-router";
 import { useTranslation } from 'react-i18next';
 
@@ -17,10 +17,10 @@ export default function SidebarList() {
 
     const links = [
       { icon: <RiLayoutMasonryFill className="icos" />, label: t("sidebar.Dashboard"), path: "/dashboard" },
-      { icon: <IoKeyOutline className="icos" />, label: t("sidebar.Room"), path: "/dashboard/rooms" },
       { icon: <CiCalendarDate className="icos" />, label: t("sidebar.Bookings"), path: "/dashboard/bookings" },
-      { icon: <FaUser className="icos" />, label: t("sidebar.Guest"), path: "/dashboard/guest" },
-      { icon: <IoExtensionPuzzleOutline className="icos" />, label: t("sidebar.Concierge"), path: "/dashboard/employees" },
+      { icon: <IoKeyOutline className="icos" />, label: t("sidebar.Room"), path: "/dashboard/rooms" },
+      { icon: <CiMail className="icos" />, label: t("sidebar.Contact"), path: "/dashboard/contact" },
+      { icon: <FaUser className="icos" />, label: t("sidebar.Users"), path: "/dashboard/users" },
     ];
 
     const handleClick = (index, path) => {

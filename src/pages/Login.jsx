@@ -38,6 +38,9 @@ export default function Login() {
                     <Logo />
 
                     <h1>Login</h1>
+                    <p>user: admin</p>
+                    <p>pass: admin</p>
+                    <br />
                     <form action="post" onSubmit={handleSubmit}>
                         <div className="inputContainer">
                             <input id="username" type="text" placeholder=" " onChange={(e) => setUsername(e.target.value)} />
