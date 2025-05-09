@@ -11,7 +11,7 @@ export default function Statistics() {
 
 const StyledStatistics = styled.div `
     background: white;
-    padding: 2rem;
     width: 46.5%;
-    margin: 2rem auto;
+    margin-top: 2rem;
+    margin-left: 2rem;
 `;
