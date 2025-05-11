@@ -17,8 +17,8 @@ export default function TableTemplate({ filter }) {
     return (
         <StyledTableTemplate>
             {section === "rooms" && <RoomTable filter={filter} />}
-            {section === "users" && <GuestTable filter={filter} navigate={navigate} />}
-            {section === "employees" && <EmployeeTable filter={filter} />}
+            {section === "users" && <EmployeeTable filter={filter} navigate={navigate} />}
+            {section === "bookings" && <GuestTable filter={filter} />}
         </StyledTableTemplate>
     )
 }
