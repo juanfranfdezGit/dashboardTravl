@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import React, { useState, useEffect, use } from 'react';
+import { useState, useEffect } from 'react';
 import bookingsData from '../../datas/bookings.json';
 import { FaChevronLeft } from "react-icons/fa";
 import { FaChevronRight } from "react-icons/fa";
 
-export default function Calendar() {
+export default function Calendar({ selectedDay, setSelectedDay }) {
 
     const weekDays = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'];
 
@@ -12,7 +12,6 @@ export default function Calendar() {
     const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
     const [daysInMonth, setDaysInMonth] = useState([]);
     const [currentDay, setCurrentDay] = useState(new Date().getDate());
-    const [selectedDay, SetSelectedDay] = useState(currentDay)
 
     const [bookings, setBookings] = useState([]);
 
@@ -63,7 +62,8 @@ export default function Calendar() {
     }
 
     const handleDayClick = (day) => {
-        console.log(`Has seleccionado el día: ${day}`);
+        const selectedDate = new Date(currentYear, currentMonth, day);
+        setSelectedDay(selectedDate);
     };
 
     return (
@@ -93,10 +93,25 @@ export default function Calendar() {
                         );
                     });
 
+                    const hasCheckOut = bookings.some(booking => {
+                        const bookingDate = new Date(booking.fecha_salida);
+                        return (
+                            bookingDate.getDate() === day &&
+                            bookingDate.getMonth() === currentMonth &&
+                            bookingDate.getFullYear() === currentYear
+                        );
+                    });
+
                     return (
                         <div
                             key={index}
-                            className={`day ${isToday ? 'today' : ''} ${hasBooking ? 'booked' : ''}`}
+                            className={[
+                                'day',
+                                isToday && 'today',
+                                hasBooking && 'booked',
+                                hasCheckOut && 'checkOut',
+                                hasBooking && hasCheckOut && 'both'
+                            ].filter(Boolean).join(' ')}
                             onClick={() => handleDayClick(day)}
                         >
                             {day || ''}
@@ -114,6 +129,7 @@ const StyledCalendar = styled.div`
     width: 46.5%;
     margin-top: 2rem;
     cursor: pointer;
+    border-radius: 8px;
 
     .calendar-header {
         text-align: center;
@@ -153,6 +169,16 @@ const StyledCalendar = styled.div`
 
     .booked {
         background-color: var(--booked-text);
+        color: #fff;
+    }
+
+    .checkOut {
+        background-color: var(--refund-text);
+        color: #fff;
+    }
+
+    .both {
+        background-color: var(--calendar-both);
         color: #fff;
     }
 

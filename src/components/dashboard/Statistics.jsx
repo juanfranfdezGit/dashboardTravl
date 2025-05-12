@@ -14,4 +14,5 @@ const StyledStatistics = styled.div `
     width: 46.5%;
     margin-top: 2rem;
     margin-left: 2rem;
+    border-radius: 8px;
 `;

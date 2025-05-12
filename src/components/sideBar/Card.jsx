@@ -11,7 +11,7 @@ export default function Card({ name, mail, image }) {
             <img src={image} alt="photo" />
             <h3>{name}</h3>
             <p>{mail}</p>
-            <Button type='solid' text={t("sidebar.Contact Us")} />
+            <Button type='solid' text={t("sidebar.Edit")} />
         </StyledCard>
     )
 }

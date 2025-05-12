@@ -22,5 +22,7 @@
     --pending-text: #6D6D6D;
 
     --room-available: #5AD07A;
-    --room-booked: #E23428;
+    --room-booked: #e2b028;
+
+    --calendar-both: #fcc01c;
 }
