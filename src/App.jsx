@@ -9,7 +9,6 @@ import './styles/index.css'
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import DashboardLayout from './layout/DashboardLayout';
-import Bookings from './pages/Bookings';
 import Guest from './pages/Guest';
 import Employees from './pages/Employees';
 import Rooms from './pages/Rooms';
@@ -31,9 +30,9 @@ const router = createBrowserRouter([
     ),
     children: [
       { index: true, element: <ProtectedRoute><Dashboard /></ProtectedRoute> },
-      { path: 'bookings', element: <ProtectedRoute><Bookings /></ProtectedRoute> },
       { path: 'rooms', element: <ProtectedRoute><Rooms /></ProtectedRoute> },
-      { path: 'users', element: <ProtectedRoute><Guest /></ProtectedRoute> },
+      { path: 'users', element: <ProtectedRoute><Employees /></ProtectedRoute> },
+      { path: 'bookings', element: <ProtectedRoute><Guest /></ProtectedRoute> },
       { path: 'users/:id', element: <ProtectedRoute><GuestDetails /></ProtectedRoute> },
       { path: 'contact', element: <ProtectedRoute><Employees /></ProtectedRoute> },
     ]

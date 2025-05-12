@@ -13,7 +13,7 @@ export default function TableActions({ onAddClick, onFilter }) {
     const [activeIndex, setActiveIndex] = useState(0);
 
     const sectionActions = {
-        users: [
+        bookings: [
             { text: t("guest.All Guests") },
             { text: t("guest.Pending") },
             { text: t("guest.Booked") },
@@ -26,7 +26,7 @@ export default function TableActions({ onAddClick, onFilter }) {
             { text: t("rooms.Booked") },
             { text: t("rooms.Add Room"), isAdd: true }
         ],
-        employees: [
+        users: [
             { text: t("employees.All Employees") },
             { text: t("employees.Active Employees") },
             { text: t("employees.Inactive Employees") },
