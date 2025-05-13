@@ -1,7 +1,7 @@
-export interface Employee {
+import { Person } from "./Person";
+
+export interface Employee extends Person {
     id: string;
-    image: string;
-    name: string;
     joined: string;
     jobDesk: string[];
     schedule: string[];

@@ -1,13 +1,9 @@
-type Person = {
-    name: string;
-    image: string;
-}
+import { Person } from "./Person";
 
-export interface Guest extends Person {
-    id: string;
+export default interface Guest extends Person {
+    guestId: string;
     specialRequest: {
         text: string;
         status: boolean;
     }
-    status: "Pending" | "Booked" | "Canceled" | "Refund";
 }
