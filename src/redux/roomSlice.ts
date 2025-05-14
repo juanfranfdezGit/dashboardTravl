@@ -1,13 +1,20 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import roomsData from '../datas/rooms.json';
+import Room from '../types/Room';
 
-const initialState = {
-  data: JSON.parse(localStorage.getItem("rooms")) || [],     
+const initialState: RoomState = {
+  data: JSON.parse(localStorage.getItem("rooms") || 'null' ) ?? roomsData,     
   loading: false,
   error: null,   
 };
 
-export const fetchRoomData = createAsyncThunk(
+interface RoomState {
+  data: Room[];
+  loading: boolean;
+  error: string | null
+}
+
+export const fetchRoomData = createAsyncThunk<Room[]>(
   'rooms/fetchRoomData',
   async () => {
     const local = localStorage.getItem("rooms");
@@ -40,15 +47,15 @@ const roomSlice = createSlice({
       })
       .addCase(fetchRoomData.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.error.message;
+        state.error = action.error.message ?? 'Failed to fetch room';
       });
   }
 });
 
 export const { addRoom } = roomSlice.actions;
 
-export const selectAllRooms = (state) => state.rooms.data || [];
-export const selectRoomsLoading = (state) => state.rooms.loading || false;
-export const selectRoomsError = (state) => state.rooms.error || null;
+export const selectAllEmployees = (state: { rooms: RoomState }) => state.rooms.data;
+export const selectEmployeesLoading = (state: { rooms: RoomState }) => state.rooms.loading;
+export const selectEmployeesError = (state: { rooms: RoomState }) => state.rooms.error;
 
 export default roomSlice.reducer;

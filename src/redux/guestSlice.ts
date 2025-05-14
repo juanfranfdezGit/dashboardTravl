@@ -1,13 +1,20 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk  } from '@reduxjs/toolkit';
 import guestsData from '../datas/guests.json';
+import Guest from '../types/Guest';
 
-const initialState = {
-  data: [],     
+const initialState: GuestState = {
+  data: [],
   loading: false,
-  error: null,   
+  error: null,
 };
 
-export const fetchGuestData = createAsyncThunk(
+interface GuestState {
+  data: Guest[];
+  loading: boolean;
+  error: string | null
+}
+
+export const fetchGuestData = createAsyncThunk<Guest[]>(
   'guests/fetchGuestData',
   async () => {
     const local = localStorage.getItem("guests");
@@ -19,6 +26,7 @@ export const fetchGuestData = createAsyncThunk(
 const guestSlice = createSlice({
   name: 'guests',
   initialState,
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchGuestData.pending, (state) => {
@@ -31,13 +39,13 @@ const guestSlice = createSlice({
       })
       .addCase(fetchGuestData.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.error.message;
+        state.error = action.error.message || 'Failed to fetch guests';
       });
   }
 });
 
-export const selectAllGuests = (state) => state.guests.data || [];
-export const selectGuestsLoading = (state) => state.guests.loading || false;
-export const selectGuestsError = (state) => state.guests.error || null;
+export const selectAllGuests = (state: { guests: GuestState }) => state.guests.data;
+export const selectGuestsLoading = (state: { guests: GuestState }) => state.guests.loading;
+export const selectGuestsError = (state: { guests: GuestState }) => state.guests.error;
 
 export default guestSlice.reducer;

@@ -1,13 +1,20 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import employeesData from '../datas/employees.json';
+import { Employee } from '../types/Employee';
 
-const initialState = {
-  data: JSON.parse(localStorage.getItem("employees")) || [],     
+const initialState: EmployeeState = {
+  data: JSON.parse(localStorage.getItem("employees") || 'null') ?? employeesData,
   loading: false,
   error: null,   
 };
 
-export const fetchEmployeeData = createAsyncThunk(
+interface EmployeeState {
+  data: Employee[];
+  loading: boolean;
+  error: string | null
+}
+
+export const fetchEmployeeData = createAsyncThunk<Employee[]>(
   'employees/fetchEmployeeData',
   async () => {
     const local = localStorage.getItem("employees");
@@ -20,12 +27,9 @@ const employeeSlice = createSlice({
   name: 'employees',
   initialState,
   reducers: {
-    addEmployee: (state, action) => {
-      if (!Array.isArray(state.data)) {
-        state.data = [];
-      }
+    addEmployee: (state, action: PayloadAction<Employee>) => {
       state.data.push(action.payload);
-      localStorage.setItem("employees", JSON.stringify(state.data)); 
+      localStorage.setItem("employees", JSON.stringify(state.data));
     }
   },
   extraReducers: (builder) => {
@@ -40,15 +44,15 @@ const employeeSlice = createSlice({
       })
       .addCase(fetchEmployeeData.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.error.message;
+        state.error = action.error.message ?? 'Failed to fetch employees';
       });
   }
 });
 
 export const { addEmployee } = employeeSlice.actions;
 
-export const selectAllEmployees = (state) => state.employees.data || [];
-export const selectEmployeesLoading = (state) => state.employees.loading || false;
-export const selectEmployeesError = (state) => state.employees.error || null;
+export const selectAllEmployees = (state: { employees: EmployeeState }) => state.employees.data;
+export const selectEmployeesLoading = (state: { employees: EmployeeState }) => state.employees.loading;
+export const selectEmployeesError = (state: { employees: EmployeeState }) => state.employees.error;
 
 export default employeeSlice.reducer;

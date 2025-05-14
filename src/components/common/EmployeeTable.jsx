@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { MdOutlinePhone } from "react-icons/md";
 
-import { fetchEmployeeData } from "../../redux/employeeSlice";
+import { fetchEmployeeData } from "../../redux/employeeSlice.ts";
 
 export default function EmployeeTable({ filter }) {
 
