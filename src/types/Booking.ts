@@ -4,14 +4,10 @@ import Room from './Room';
 export interface Booking {
     guest: Guest;
     room: Room;
-    orderDate: string;
-    checkIn: {
-        date: string;
-        hour: string;
-    };
-    checkOut: {
-        date: string;
-        hour: string;
-    };
+    createDate: Date;
+    updateDate: Date;
+    deleteDate: Date | null;
+    checkIn: Date;
+    checkOut: Date;
     status: "Pending" | "Booked" | "Canceled" | "Refund";
 }

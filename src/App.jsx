@@ -33,7 +33,7 @@ const router = createBrowserRouter([
       { path: 'rooms', element: <ProtectedRoute><Rooms /></ProtectedRoute> },
       { path: 'users', element: <ProtectedRoute><Employees /></ProtectedRoute> },
       { path: 'bookings', element: <ProtectedRoute><Guest /></ProtectedRoute> },
-      { path: 'users/:id', element: <ProtectedRoute><GuestDetails /></ProtectedRoute> },
+      { path: 'bookings/:id', element: <ProtectedRoute><GuestDetails /></ProtectedRoute> },
       { path: 'contact', element: <ProtectedRoute><Employees /></ProtectedRoute> },
     ]
   }
