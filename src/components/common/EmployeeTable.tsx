@@ -1,17 +1,21 @@
 import { useTranslation } from 'react-i18next';
 import { TbDotsVertical } from "react-icons/tb";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks.ts';
 import { MdOutlinePhone } from "react-icons/md";
 
 import { fetchEmployeeData } from "../../redux/employeeSlice.ts";
 
-export default function EmployeeTable({ filter }) {
+interface EmployeeTableProps {
+    filter: string;
+}
+
+export default function EmployeeTable({ filter }: EmployeeTableProps) {
 
     const { t } = useTranslation();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
-    const { data: employees, loading: employeesLoading, error: employeesError } = useSelector((state) => state.employees);
+    const { data: employees, loading: employeesLoading, error: employeesError } = useAppSelector((state) => state.employees);
 
     const filteredEmployee = (employees || []).filter((employee) => {
         if (filter === "All Employees") {
@@ -30,7 +34,7 @@ export default function EmployeeTable({ filter }) {
         }
     }, [dispatch, employees.length]);
 
-    const theads = [
+    const theads: {label: string, key: string}[] = [
         { label: t("employees.Name") , key: "Name"},
         { label: t("employees.Job Desk") , key: "Job Desk"},
         { label: t("employees.Schedule") , key: "Schedule"},
@@ -55,9 +59,9 @@ export default function EmployeeTable({ filter }) {
                 {filteredEmployee.map((emp, index) => (
                     <tr key={index}>
                         <td className="img-name">
-                            <img src={emp.image} alt={emp.name} />
+                            <img src={emp.personImage} alt={emp.personName} />
                             <div>
-                                <p>{emp.name}</p>
+                                <p>{emp.personName}</p>
                                 <p className="id">#{emp.id}</p>
                                 <p>{`${t("employees.Joined on")} ${emp.joined}`}</p>
                             </div>
@@ -66,7 +70,7 @@ export default function EmployeeTable({ filter }) {
                             {emp["jobDesk"].map((task, i) => (
                                 <span key={i}>
                                 {t(`employees.${task}`)}
-                                {i < emp["jobDesk"].length - 1 ? ", " : "."} {/* Reemplaza la coma por un punto en el último item */}
+                                {i < emp["jobDesk"].length - 1 ? ", " : "."} 
                                 </span>
                             ))}
                         </td>
@@ -74,7 +78,7 @@ export default function EmployeeTable({ filter }) {
                             {emp.schedule.map((day, i) => (
                                 <span key={i}>
                                 {`${t(`employees.${day}`)}`}
-                                {i < emp.schedule.length - 1 ? ", " : "."} {/* Reemplaza la coma por un punto en el último item */}
+                                {i < emp.schedule.length - 1 ? ", " : "."} 
                                 </span>
                             ))}
                             <p className="check">Check Schedule</p>
@@ -85,7 +89,7 @@ export default function EmployeeTable({ filter }) {
                         </td>
                         <td className="options"><TbDotsVertical /></td>
                     </tr>
-                ))};
+                ))}
             </tbody>
         </table>
     );
