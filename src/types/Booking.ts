@@ -2,6 +2,7 @@ import Guest from './Guest';
 import Room from './Room';
 
 export interface Booking {
+    bookingID: string,
     guest: Guest;
     room: Room;
     createDate: Date;

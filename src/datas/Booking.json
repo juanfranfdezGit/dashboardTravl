@@ -1,0 +1,152 @@
+[
+  {
+    "bookingID": "B001",
+    "guest": {
+      "guestId": "G001",
+      "personName": "Ana Pérez",
+      "personImage": "https://randomuser.me/api/portraits/women/1.jpg",
+      "specialRequest": {
+        "text": "Late check-in",
+        "status": true
+      }
+    },
+    "room": {
+      "roomId": "R001",
+      "roomNumber": "101",
+      "roomName": "Ocean View Suite",
+      "bedType": "King",
+      "roomFloor": "1",
+      "facilities": ["WiFi", "Air Conditioning", "Balcony", "Mini Bar"],
+      "rate": 150,
+      "roomImage": "https://example.com/images/room101.jpg",
+      "roomStatus": "Booked",
+      "description": "Spacious suite with ocean views and a private balcony."
+    },
+    "createDate": "2025-05-01T09:00:00Z",
+    "updateDate": "2025-05-03T11:00:00Z",
+    "deleteDate": null,
+    "checkIn": "2025-06-10T15:00:00Z",
+    "checkOut": "2025-06-15T11:00:00Z",
+    "status": "Booked"
+  },
+  {
+    "bookingID": "B002",
+    "guest": {
+      "guestId": "G002",
+      "personName": "Carlos López",
+      "personImage": "https://randomuser.me/api/portraits/men/2.jpg",
+      "specialRequest": {
+        "text": "",
+        "status": false
+      }
+    },
+    "room": {
+      "roomId": "R004",
+      "roomNumber": "202",
+      "roomName": "Executive Suite",
+      "bedType": "King",
+      "roomFloor": "2",
+      "facilities": ["WiFi", "Air Conditioning", "Work Desk", "Mini Bar"],
+      "rate": 200,
+      "roomImage": "https://example.com/images/room202.jpg",
+      "roomStatus": "Available",
+      "description": "Luxurious suite designed for business travelers."
+    },
+    "createDate": "2025-04-15T10:30:00Z",
+    "updateDate": "2025-04-20T14:45:00Z",
+    "deleteDate": null,
+    "checkIn": "2025-06-01T15:00:00Z",
+    "checkOut": "2025-06-05T11:00:00Z",
+    "status": "Pending"
+  },
+  {
+    "bookingID": "B003",
+    "guest": {
+      "guestId": "G003",
+      "personName": "María García",
+      "personImage": "https://randomuser.me/api/portraits/women/3.jpg",
+      "specialRequest": {
+        "text": "Extra pillows",
+        "status": true
+      }
+    },
+    "room": {
+      "roomId": "R007",
+      "roomNumber": "401",
+      "roomName": "Family Suite",
+      "bedType": "King + Sofa Bed",
+      "roomFloor": "4",
+      "facilities": ["WiFi", "Air Conditioning", "Kitchenette", "Balcony"],
+      "rate": 180,
+      "roomImage": "https://example.com/images/room401.jpg",
+      "roomStatus": "Booked",
+      "description": "Spacious suite perfect for families, includes kitchenette."
+    },
+    "createDate": "2025-05-05T12:00:00Z",
+    "updateDate": "2025-05-10T10:00:00Z",
+    "deleteDate": null,
+    "checkIn": "2025-07-01T15:00:00Z",
+    "checkOut": "2025-07-10T11:00:00Z",
+    "status": "Booked"
+  },
+  {
+    "bookingID": "B004",
+    "guest": {
+      "guestId": "G004",
+      "personName": "Javier Martínez",
+      "personImage": "https://randomuser.me/api/portraits/men/4.jpg",
+      "specialRequest": {
+        "text": "",
+        "status": false
+      }
+    },
+    "room": {
+      "roomId": "R008",
+      "roomNumber": "402",
+      "roomName": "Economy Room",
+      "bedType": "Twin",
+      "roomFloor": "4",
+      "facilities": ["WiFi"],
+      "rate": 70,
+      "roomImage": "https://example.com/images/room402.jpg",
+      "roomStatus": "Available",
+      "description": "Affordable room for budget travelers."
+    },
+    "createDate": "2025-05-10T08:00:00Z",
+    "updateDate": "2025-05-12T09:00:00Z",
+    "deleteDate": "2025-05-15T12:00:00Z",
+    "checkIn": "2025-07-15T15:00:00Z",
+    "checkOut": "2025-07-20T11:00:00Z",
+    "status": "Canceled"
+  },
+  {
+    "bookingID": "B005",
+    "guest": {
+      "guestId": "G005",
+      "personName": "Lucía Fernández",
+      "personImage": "https://randomuser.me/api/portraits/women/5.jpg",
+      "specialRequest": {
+        "text": "Allergic to feathers",
+        "status": true
+      }
+    },
+    "room": {
+      "roomId": "R005",
+      "roomNumber": "301",
+      "roomName": "Penthouse Loft",
+      "bedType": "King",
+      "roomFloor": "3",
+      "facilities": ["WiFi", "Air Conditioning", "Jacuzzi", "Terrace"],
+      "rate": 350,
+      "roomImage": "https://example.com/images/room301.jpg",
+      "roomStatus": "Booked",
+      "description": "Top floor loft with jacuzzi and large terrace."
+    },
+    "createDate": "2025-05-15T14:00:00Z",
+    "updateDate": "2025-05-20T16:00:00Z",
+    "deleteDate": null,
+    "checkIn": "2025-08-01T15:00:00Z",
+    "checkOut": "2025-08-10T11:00:00Z",
+    "status": "Refund"
+  }
+]

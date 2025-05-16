@@ -1,0 +1,102 @@
+[
+  {
+    "id": "E001",
+    "personName": "Alice Johnson",
+    "personImage": "https://randomuser.me/api/portraits/women/1.jpg",
+    "joined": "2022-01-15",
+    "jobDesk": ["Developer", "Team Lead"],
+    "schedule": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "contact": "+1234567890",
+    "status": "Active"
+  },
+  {
+    "id": "E002",
+    "personName": "Bob Smith",
+    "personImage": "https://randomuser.me/api/portraits/men/2.jpg",
+    "joined": "2021-06-22",
+    "jobDesk": ["Designer"],
+    "schedule": ["Monday", "Wednesday", "Friday"],
+    "contact": "+1234567891",
+    "status": "Inactive"
+  },
+  {
+    "id": "E003",
+    "personName": "Catherine Lee",
+    "personImage": "https://randomuser.me/api/portraits/women/3.jpg",
+    "joined": "2020-11-03",
+    "jobDesk": ["QA Analyst"],
+    "schedule": ["Tuesday", "Thursday"],
+    "contact": "+1234567892",
+    "status": "Active"
+  },
+  {
+    "id": "E004",
+    "personName": "Daniel Martinez",
+    "personImage": "https://randomuser.me/api/portraits/men/4.jpg",
+    "joined": "2019-08-10",
+    "jobDesk": ["Developer"],
+    "schedule": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "contact": "+1234567893",
+    "status": "Active"
+  },
+  {
+    "id": "E005",
+    "personName": "Eva Green",
+    "personImage": "https://randomuser.me/api/portraits/women/5.jpg",
+    "joined": "2023-03-18",
+    "jobDesk": ["Product Manager"],
+    "schedule": ["Monday", "Tuesday", "Wednesday"],
+    "contact": "+1234567894",
+    "status": "Inactive"
+  },
+  {
+    "id": "E006",
+    "personName": "Frank Wilson",
+    "personImage": "https://randomuser.me/api/portraits/men/6.jpg",
+    "joined": "2022-07-29",
+    "jobDesk": ["Support Engineer"],
+    "schedule": ["Monday", "Friday"],
+    "contact": "+1234567895",
+    "status": "Active"
+  },
+  {
+    "id": "E007",
+    "personName": "Grace Kim",
+    "personImage": "https://randomuser.me/api/portraits/women/7.jpg",
+    "joined": "2021-12-05",
+    "jobDesk": ["HR"],
+    "schedule": ["Tuesday", "Thursday"],
+    "contact": "+1234567896",
+    "status": "Active"
+  },
+  {
+    "id": "E008",
+    "personName": "Henry Clark",
+    "personImage": "https://randomuser.me/api/portraits/men/8.jpg",
+    "joined": "2020-04-14",
+    "jobDesk": ["Developer"],
+    "schedule": ["Monday", "Wednesday", "Friday"],
+    "contact": "+1234567897",
+    "status": "Inactive"
+  },
+  {
+    "id": "E009",
+    "personName": "Isabella Rossi",
+    "personImage": "https://randomuser.me/api/portraits/women/9.jpg",
+    "joined": "2018-09-23",
+    "jobDesk": ["Designer", "Illustrator"],
+    "schedule": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+    "contact": "+1234567898",
+    "status": "Active"
+  },
+  {
+    "id": "E010",
+    "personName": "Jack Turner",
+    "personImage": "https://randomuser.me/api/portraits/men/10.jpg",
+    "joined": "2023-01-11",
+    "jobDesk": ["Marketing Specialist"],
+    "schedule": ["Wednesday", "Thursday", "Friday"],
+    "contact": "+1234567899",
+    "status": "Active"
+  }
+]

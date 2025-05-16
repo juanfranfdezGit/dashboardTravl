@@ -1,0 +1,92 @@
+[
+  {
+    "guestId": "G001",
+    "personName": "Alice Johnson",
+    "personImage": "https://randomuser.me/api/portraits/women/1.jpg",
+    "specialRequest": {
+      "text": "Late check-in",
+      "status": true
+    }
+  },
+  {
+    "guestId": "G002",
+    "personName": "Bob Smith",
+    "personImage": "https://randomuser.me/api/portraits/men/2.jpg",
+    "specialRequest": {
+      "text": "",
+      "status": false
+    }
+  },
+  {
+    "guestId": "G003",
+    "personName": "Catherine Lee",
+    "personImage": "https://randomuser.me/api/portraits/women/3.jpg",
+    "specialRequest": {
+      "text": "Vegetarian meals",
+      "status": true
+    }
+  },
+  {
+    "guestId": "G004",
+    "personName": "Daniel Martinez",
+    "personImage": "https://randomuser.me/api/portraits/men/4.jpg",
+    "specialRequest": {
+      "text": "",
+      "status": false
+    }
+  },
+  {
+    "guestId": "G005",
+    "personName": "Eva Green",
+    "personImage": "https://randomuser.me/api/portraits/women/5.jpg",
+    "specialRequest": {
+      "text": "Room with a view",
+      "status": true
+    }
+  },
+  {
+    "guestId": "G006",
+    "personName": "Frank Wilson",
+    "personImage": "https://randomuser.me/api/portraits/men/6.jpg",
+    "specialRequest": {
+      "text": "",
+      "status": false
+    }
+  },
+  {
+    "guestId": "G007",
+    "personName": "Grace Kim",
+    "personImage": "https://randomuser.me/api/portraits/women/7.jpg",
+    "specialRequest": {
+      "text": "Early breakfast",
+      "status": true
+    }
+  },
+  {
+    "guestId": "G008",
+    "personName": "Henry Clark",
+    "personImage": "https://randomuser.me/api/portraits/men/8.jpg",
+    "specialRequest": {
+      "text": "",
+      "status": false
+    }
+  },
+  {
+    "guestId": "G009",
+    "personName": "Isabella Rossi",
+    "personImage": "https://randomuser.me/api/portraits/women/9.jpg",
+    "specialRequest": {
+      "text": "No smoking room",
+      "status": true
+    }
+  },
+  {
+    "guestId": "G010",
+    "personName": "Jack Turner",
+    "personImage": "https://randomuser.me/api/portraits/men/10.jpg",
+    "specialRequest": {
+      "text": "",
+      "status": false
+    }
+  }
+]
