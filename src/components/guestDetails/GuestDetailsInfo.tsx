@@ -1,25 +1,59 @@
 import styled from "styled-components";
 import { FaPhoneAlt } from "react-icons/fa";
 import { LuMessageSquareText } from "react-icons/lu";
-import guestsData from '../../datas/guests.json';
 import { useParams } from 'react-router-dom';
 import { SlOptionsVertical } from "react-icons/sl";
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+interface Guest {
+  _id: string;
+  personNumber?: string;
+  personName: string;
+  personImage?: string;
+  checkIn?: {
+    date: string;
+    hour: string;
+  };
+  checkOut?: {
+    date: string;
+    hour: string;
+  };
+}
 
 export default function GuestDetailsInfo() {
 
     const { id } = useParams();
 
-    const guest = guestsData.find(guest => guest.id.toString() === id);
-  
+    const [guest, setGuest] = useState<Guest | null>(null);
+    const [loading, setLoading] = useState(true);
+
+    
+    useEffect(() => {
+        if (id) {
+        axios.get<Guest>(`https://localhost:3000/api/guests/${id}`)
+            .then(res => {
+            setGuest(res.data);
+            })
+            .catch(err => {
+            console.error("Error fetching guest:", err);
+            })
+            .finally(() => {
+            setLoading(false);
+            });
+        }
+    }, [id]);
+    
+    if (loading) return <p>Loading...</p>;
     if (!guest) return <p>Huésped no encontrado.</p>;
 
     return (
         <StyledGuestDetailsInfo>
             <div className="guestInfo">
-                <img src={guest.image} alt={guest.name} />
+                <img src={guest.personImage} alt={guest.personName} />
                 <div className="guestDatas">
-                    <h1>{guest.name}</h1>
-                    <p>ID {guest.id}</p>
+                    <h1>{guest.personName}</h1>
+                    <p>ID {guest._id}</p>
                     <div className="datasIcos">
                         <FaPhoneAlt className="phoneIco" />
                         <button><LuMessageSquareText /> Send Message</button>
@@ -30,11 +64,11 @@ export default function GuestDetailsInfo() {
             <div className="chechInDiv">
                 <div>
                     <span>Check In</span>
-                    <p>{guest.checkIn.date} | {guest.checkIn.hour}</p>
+                    <p>{guest.checkIn?.date} | {guest.checkIn?.hour}</p>
                 </div>
                 <div>
                     <span>Check Out</span>
-                    <p>{guest.checkOut.date} | {guest.checkOut.hour}</p>
+                    <p>{guest.checkOut?.date} | {guest.checkOut?.hour}</p>
                 </div>
             </div>
         </StyledGuestDetailsInfo>

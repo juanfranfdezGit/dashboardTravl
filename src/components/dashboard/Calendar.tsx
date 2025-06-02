@@ -1,21 +1,58 @@
 import styled from "styled-components";
 import { useState, useEffect } from 'react';
-import bookingsData from '../../datas/bookings.json';
-import { FaChevronLeft } from "react-icons/fa";
-import { FaChevronRight } from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import axios from 'axios';
+
+interface Booking {
+  _id: string;
+  guest: {
+    _id: string;
+    personNumber?: string;
+    personName: string;
+    personImage?: string;
+    checkIn?: {
+        date: string;
+        hour: string;
+    };
+    checkOut?: {
+        date: string;
+        hour: string;
+    };
+  };
+  room: {
+    _id: string;
+    roomNumber: string;
+    roomName: string;
+    bedType: string;
+    roomFloor: string;
+    facilities: string[];
+    rate: number;
+    roomImage: string;
+    roomStatus: string;
+    description: string;
+  };
+  checkIn: string;
+  checkOut: string;
+  status: string;
+}
+
+interface CalendarProps {
+  selectedDay: Date | null;
+  setSelectedDay: (date: Date) => void;
+}
 
 export default function Calendar({ selectedDay, setSelectedDay }) {
 
     const weekDays = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'];
 
-    const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
-    const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
-    const [daysInMonth, setDaysInMonth] = useState([]);
-    const [currentDay, setCurrentDay] = useState(new Date().getDate());
-
-    const [bookings, setBookings] = useState([]);
-
     const today = new Date();
+    const [currentMonth, setCurrentMonth] = useState(today.getMonth());
+    const [currentYear, setCurrentYear] = useState(today.getFullYear());
+    const [daysInMonth, setDaysInMonth] = useState<(number | null)[]>([]);
+    const [currentDay, setCurrentDay] = useState(today.getDate());
+
+    const [bookings, setBookings] = useState<Booking[]>([]);
+
     const isCurrentMonthAndYear = currentMonth === today.getMonth() && currentYear === today.getFullYear();
 
     useEffect(() => {
@@ -23,23 +60,28 @@ export default function Calendar({ selectedDay, setSelectedDay }) {
     }, [currentMonth, currentYear]);
 
     useEffect(() => {
-        const filtered = bookingsData.filter(booking => {
-            const bookingDate = new Date(booking.fecha_entrada);
-            return (
-                bookingDate.getMonth() === currentMonth &&
-                bookingDate.getFullYear() === currentYear
-            );
-        });
-    
-        setBookings(filtered);
+        async function fetchBookings() {
+            try {
+                const response = await axios.get<Booking[]>('http://localhost:3000/api/bookings', {
+                    params: {
+                        year: currentYear,
+                        month: currentMonth + 1,
+                    }
+                });
+                setBookings(response.data);
+            } catch (error) {
+                console.error('Error fetching bookings:', error);
+                setBookings([]);
+            }
+        }
+        fetchBookings();
     }, [currentMonth, currentYear]);
 
-    const generateCalendar = (month, year) => {
+    const generateCalendar = (month: number, year: number) => {
         const firstDay = new Date(year, month, 1);
         const lastDay = new Date(year, month + 1, 0);
-        const days = [];
+        const days: (number | null)[] = [];
         
-    
         const numDays = lastDay.getDate();
         const startingDay = firstDay.getDay();
 
@@ -48,20 +90,32 @@ export default function Calendar({ selectedDay, setSelectedDay }) {
         for (let i = 0; i < adjustedStart; i++) {
             days.push(null);
         }
-    
+
         for (let i = 1; i <= numDays; i++) {
             days.push(i);
         }
-    
+
         setDaysInMonth(days);
     };
 
+    const handleMonth = (num: number) => {
+        let newMonth = currentMonth + num;
+        let newYear = currentYear;
 
-    const handleMonth = (num) => {
-        setCurrentMonth(currentMonth + num)
-    }
+        if (newMonth > 11) {
+            newMonth = 0;
+            newYear += 1;
+        } else if (newMonth < 0) {
+            newMonth = 11;
+            newYear -= 1;
+        }
 
-    const handleDayClick = (day) => {
+        setCurrentMonth(newMonth);
+        setCurrentYear(newYear);
+    };
+
+    const handleDayClick = (day: number | null) => {
+        if (!day) return;
         const selectedDate = new Date(currentYear, currentMonth, day);
         setSelectedDay(selectedDate);
     };
@@ -73,7 +127,7 @@ export default function Calendar({ selectedDay, setSelectedDay }) {
                 <div className="month">
                     <FaChevronLeft onClick={() => handleMonth(-1)} />
                     <span>{new Date(currentYear, currentMonth).toLocaleString('default', { month: 'long' })} {currentYear}</span>
-                    <FaChevronRight onClick={() => handleMonth(+1)} />
+                    <FaChevronRight onClick={() => handleMonth(1)} />
                 </div>
             </div>
             <div className="calendar-grid">
@@ -82,10 +136,14 @@ export default function Calendar({ selectedDay, setSelectedDay }) {
                 ))}
 
                 {daysInMonth.map((day, index) => {
+                    if (day === null) {
+                        return <div key={index} className="day empty"></div>;
+                    }
+
                     const isToday = isCurrentMonthAndYear && day === currentDay;
-                    
+
                     const hasBooking = bookings.some(booking => {
-                        const bookingDate = new Date(booking.fecha_entrada);
+                        const bookingDate = new Date(booking.checkIn);
                         return (
                             bookingDate.getDate() === day &&
                             bookingDate.getMonth() === currentMonth &&
@@ -94,11 +152,11 @@ export default function Calendar({ selectedDay, setSelectedDay }) {
                     });
 
                     const hasCheckOut = bookings.some(booking => {
-                        const bookingDate = new Date(booking.fecha_salida);
+                        const checkOutDate = new Date(booking.checkOut);
                         return (
-                            bookingDate.getDate() === day &&
-                            bookingDate.getMonth() === currentMonth &&
-                            bookingDate.getFullYear() === currentYear
+                            checkOutDate.getDate() === day &&
+                            checkOutDate.getMonth() === currentMonth &&
+                            checkOutDate.getFullYear() === currentYear
                         );
                     });
 
@@ -107,14 +165,14 @@ export default function Calendar({ selectedDay, setSelectedDay }) {
                             key={index}
                             className={[
                                 'day',
-                                isToday && 'today',
-                                hasBooking && 'booked',
-                                hasCheckOut && 'checkOut',
-                                hasBooking && hasCheckOut && 'both'
+                                isToday ? 'today' : '',
+                                hasBooking ? 'booked' : '',
+                                hasCheckOut ? 'checkOut' : '',
+                                (hasBooking && hasCheckOut) ? 'both' : ''
                             ].filter(Boolean).join(' ')}
                             onClick={() => handleDayClick(day)}
                         >
-                            {day || ''}
+                            {day}
                         </div>
                     );
                 })}

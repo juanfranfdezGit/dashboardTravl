@@ -1,12 +1,14 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
-import employeesData from '../datas/employees.json';
 import { Employee } from '../types/Employee';
+import axios from 'axios';
 
 const initialState: EmployeeState = {
-  data: JSON.parse(localStorage.getItem("employees") || 'null') ?? employeesData,
+  data: JSON.parse(localStorage.getItem("employees") || 'null') ?? [],
   loading: false,
   error: null,   
 };
+
+const EMPLOYEES_API_URL = 'https://localhost:3000/api/employees';
 
 interface EmployeeState {
   data: Employee[];
@@ -14,12 +16,15 @@ interface EmployeeState {
   error: string | null
 }
 
-export const fetchEmployeeData = createAsyncThunk<Employee[]>(
-  'employees/fetchEmployeeData',
-  async () => {
+export const fetchEmployeeData = createAsyncThunk<Employee[]>('guests/fetchEmployeeData', async () => {
     const local = localStorage.getItem("employees");
-    const response = local ? JSON.parse(local) : employeesData;
-    return response;
+
+    if (local) {
+      return JSON.parse(local);
+    }
+
+    const response = await axios.get<Employee[]>(EMPLOYEES_API_URL);
+    return response.data;
   }
 );
 

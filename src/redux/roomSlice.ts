@@ -1,12 +1,14 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import roomsData from '../datas/rooms.json';
 import Room from '../types/Room';
+import axios from 'axios';
 
 const initialState: RoomState = {
-  data: JSON.parse(localStorage.getItem("rooms") || 'null' ) ?? roomsData,     
+  data: JSON.parse(localStorage.getItem("rooms") || 'null' ) ?? [],     
   loading: false,
   error: null,   
 };
+
+const ROOMS_API_URL = 'https://localhost:3000/api/rooms';
 
 interface RoomState {
   data: Room[];
@@ -14,12 +16,15 @@ interface RoomState {
   error: string | null
 }
 
-export const fetchRoomData = createAsyncThunk<Room[]>(
-  'rooms/fetchRoomData',
-  async () => {
+export const fetchRoomData = createAsyncThunk<Room[]>('guests/fetchRoomData', async () => {
     const local = localStorage.getItem("rooms");
-    const response = local ? JSON.parse(local) : roomsData;
-    return response;
+
+    if (local) {
+      return JSON.parse(local);
+    }
+
+    const response = await axios.get<Room[]>(ROOMS_API_URL);
+    return response.data;
   }
 );
 

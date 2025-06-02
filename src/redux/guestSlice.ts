@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk  } from '@reduxjs/toolkit';
-import guestsData from '../datas/guests.json';
 import Guest from '../types/Guest';
+import axios from 'axios';
 
 const initialState: GuestState = {
   data: [],
@@ -8,18 +8,23 @@ const initialState: GuestState = {
   error: null,
 };
 
+const GUESTS_API_URL = 'https://localhost:3000/api/guests';
+
 interface GuestState {
   data: Guest[];
   loading: boolean;
   error: string | null
 }
 
-export const fetchGuestData = createAsyncThunk<Guest[]>(
-  'guests/fetchGuestData',
-  async () => {
+export const fetchGuestData = createAsyncThunk<Guest[]>('guests/fetchGuestData', async () => {
     const local = localStorage.getItem("guests");
-    const response = local ? JSON.parse(local) : guestsData;
-    return response;
+
+    if (local) {
+      return JSON.parse(local);
+    }
+
+    const response = await axios.get<Guest[]>(GUESTS_API_URL);
+    return response.data;
   }
 );
 
