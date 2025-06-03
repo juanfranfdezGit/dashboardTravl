@@ -47,10 +47,17 @@ export default function BookingsList({ selectedDay }) {
 
     useEffect(() => {
         setLoading(true);
-        axios.get<Booking[]>('https://localhost:3000/api/bookings')
-        .then(res => setBookings(res.data))
-        .catch(err => console.error('Error fetching bookings:', err))
-        .finally(() => setLoading(false));
+
+        const token = localStorage.getItem('token');
+        
+        axios.get<Booking[]>('http://localhost:3000/api/bookings', {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+            .then(res => setBookings(res.data))
+            .catch(err => console.error('Error fetching bookings:', err))
+            .finally(() => setLoading(false));
     }, []);
 
     useEffect(() => {
@@ -81,8 +88,8 @@ export default function BookingsList({ selectedDay }) {
     return (
         <StyledBookingsList>
             <ul>
-                {filteredBookings.map((booking, index) => (
-                    <li key={index}>
+                {filteredBookings.map((booking) => (
+                    <li key={booking._id}>
                         <img src="/assets/images/room01.jpg" alt="room" />
                         <div>
                             <p>{booking.room.bedType || "queen bed"} <span>{booking.room.roomNumber || "A-114"}</span></p>

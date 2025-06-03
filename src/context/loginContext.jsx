@@ -11,19 +11,35 @@ export function LoginProvider({ children }) {
     dispatch({ type: 'INIT', payload: storedLogin }); 
   }, []);
 
-  const login = (username, password) => {
-    const user = { username: 'admin', password: 'admin' };
+  const login = async (username, password) => {
+    try {
+      const response = await fetch('http://localhost:3000/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify({ username, password })
+      })
 
-    if (username === user.username && password === user.password) {
+      if (!response.ok) {
+        return false;
+      }
+
+      const data = await response.json();
+
+      localStorage.setItem('token', data.token);
       localStorage.setItem('isLogged', 'true');
+
       dispatch({ type: 'LOGIN' });
       return true;
-    } else {
+    } catch (error) {
+      console.log('Login failed:', error);
       return false;
     }
   };
 
   const logout = () => {
+    localStorage.removeItem('token');
     localStorage.removeItem('isLogged');
     dispatch({ type: 'LOGOUT' });
   };

@@ -60,9 +60,15 @@ export default function Calendar({ selectedDay, setSelectedDay }) {
     }, [currentMonth, currentYear]);
 
     useEffect(() => {
+
+        const token = localStorage.getItem('token');
+
         async function fetchBookings() {
             try {
                 const response = await axios.get<Booking[]>('http://localhost:3000/api/bookings', {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    },
                     params: {
                         year: currentYear,
                         month: currentMonth + 1,
