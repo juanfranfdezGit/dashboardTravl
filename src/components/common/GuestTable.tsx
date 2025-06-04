@@ -14,7 +14,7 @@ interface Guest {
 
 interface Room {
     roomImage: string;
-    roomType: string;
+    bedType: string;
 }
 
 interface Booking {
@@ -112,7 +112,7 @@ export default function GuestTable({ filter }) {
                         <td className={`notes ${specialRequest.status ? "active" : ""}`}>
                             <p>{specialRequest.text ? t(`guest.${specialRequest.text}`) : '-'}</p>
                         </td>
-                        <td><p>{room.roomType || '-'}</p></td>
+                        <td><p>{room.bedType || '-'}</p></td>
                         <td><p className={`status ${booking.status}`}>{t(`guest.${booking.status}`)}</p></td>
                         <td className="options"><TbDotsVertical /></td>
                         </tr>
