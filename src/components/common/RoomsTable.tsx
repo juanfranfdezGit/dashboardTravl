@@ -1,32 +1,47 @@
 import { useTranslation } from 'react-i18next';
 import { TbDotsVertical } from "react-icons/tb";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from "react";
+import axios from 'axios';
 
-import { fetchRoomData } from "../../redux/roomSlice";
+interface Room {
+    _id: string;
+    roomId: string;
+    roomNumber: string;
+    roomName: string;
+    bedType: string;
+    roomFloor: string;
+    facilities: string[];
+    rate: number;
+    roomImage: string;
+    roomStatus: 'Available' | 'Booked';
+    description: string;
+}
 
 export default function RoomTable({ filter }) {
     const { t } = useTranslation();
-    const dispatch = useDispatch();
 
-    const { data: rooms, loading: roomsLoading, error: roomsError } = useSelector((state) => state.rooms);
+    const [rooms, setRooms] = useState<Room[]>([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
 
-    const filteredRooms = (rooms || []).filter((room) => {
-        if (filter === "All Rooms") {
-            return true;
-        } else if (filter === "Available" || filter === "Disponible") {
-            return room.status === "Available";
-        } else if (filter === "Booked" || filter === "Reservada") {
-            return room.status === "Booked";
-        }
-        return true;
-    });
+    const filteredRooms = (rooms || []).filter(room =>
+        !filter || filter === "All Rooms" ? true :
+        (filter === "Available" || filter === "Disponible") ? room.roomStatus === "Available" :
+        (filter === "Booked" || filter === "Reservada") ? room.roomStatus === "Booked" : true
+    );
 
     useEffect(() => {
-        if (rooms.length === 0) {
-            dispatch(fetchRoomData());
-        }
-    }, [dispatch, rooms.length]);
+        setLoading(true);
+
+        const token = localStorage.getItem('token');
+
+        axios.get('http://localhost:3000/api/rooms', {
+            headers: { Authorization: `Bearer ${token}` }
+        })
+        .then(res => setRooms(res.data))
+        .catch(err => setError(err.message || "Error fetching bookings"))
+        .finally(() => setLoading(false));
+    }, []);
 
     const theads = [
         { label: t("rooms.Room Name"), key: "roomName" },
@@ -38,26 +53,24 @@ export default function RoomTable({ filter }) {
         { label: "", key: "actions" },
     ]
 
-    if (roomsLoading) return <p>Loading...</p>;
-    if (roomsError) return <p>Error loading rooms: {roomsError}</p>;
+    if (loading) return <p>{t("Loading...")}</p>;
+    if (error) return <p>{t("Error loading rooms")}: {error}</p>;
 
     return (
         <table>
             <thead>
                 <tr>
-                    {theads.map((header, index) => (
-                        <th key={index}>{header.label}</th>
-                    ))}
+                    {theads.map(h => <th key={h.key}>{h.label}</th>)}
                 </tr>
             </thead>
             <tbody>
-                {filteredRooms.map((room, index) => (
-                    <tr key={index}>
+                {filteredRooms.map((room) => (
+                    <tr key={room._id}>
                         <td className="img-name">
-                            <img src={room.image || "/placeholder.jpg"} alt={room.name} />
+                            <img src={room.roomImage || "/placeholder.jpg"} alt={room.roomName} />
                             <div>
                                 <p className="roomNumber">{room.roomNumber}</p>
-                                <p>{room.name}</p>
+                                <p>{room.roomName}</p>
                             </div>
                         </td>
                         <td><p>{t(`rooms.${room.bedType}`)}</p></td>
@@ -72,7 +85,7 @@ export default function RoomTable({ filter }) {
                         </td>
                         <td><p>${room.rate} / {t("rooms.Night")}</p></td>
                         <td>
-                            <p className={`status room ${room.status}`}>{t(`rooms.${room.status}`)}</p>
+                            <p className={`status room ${room.roomStatus}`}>{t(`rooms.${room.roomStatus}`)}</p>
                         </td>
                         <td className="options"><TbDotsVertical /></td>
                     </tr>
