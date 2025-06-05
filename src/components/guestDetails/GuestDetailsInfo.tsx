@@ -7,45 +7,66 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 interface Guest {
-  _id: string;
-  personNumber?: string;
-  personName: string;
-  personImage?: string;
-  checkIn?: {
-    date: string;
-    hour: string;
-  };
-  checkOut?: {
-    date: string;
-    hour: string;
-  };
+    _id: string;
+    personName: string;
+    personImage: string;
+    specialRequest?: {
+        status: boolean;
+        text: string;
+    };
+}
+
+interface Room {
+    roomImage: string;
+    bedType: string;
+}
+
+interface Booking {
+    _id: string;
+    guest: Guest;
+    room: Room;
+    createDate: string; 
+    checkIn: string; 
+    checkOut: string;
+    status: string;
 }
 
 export default function GuestDetailsInfo() {
 
     const { id } = useParams();
 
-    const [guest, setGuest] = useState<Guest | null>(null);
+    const [booking, setBooking] = useState<Booking | null>(null);
     const [loading, setLoading] = useState(true);
 
     
     useEffect(() => {
         if (id) {
-        axios.get<Guest>(`https://localhost:3000/api/guests/${id}`)
+        axios.get<Booking[]>(`http://localhost:3000/api/bookings`, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        })
             .then(res => {
-            setGuest(res.data);
+                const guestBooking = res.data.find(b => b._id === id);
+                if (guestBooking) {
+                    setBooking(guestBooking);
+                    console.log("Param ID:", id);
+                    console.log("Booking IDs:", res.data.map(b => ({ bookingId: b._id, guestId: b.guest._id })));
+                } else {
+                    console.warn("Guest not found")
+                }
             })
-            .catch(err => {
-            console.error("Error fetching guest:", err);
-            })
-            .finally(() => {
-            setLoading(false);
-            });
+            .catch(err => {console.error("Error fetching guest:", err);})
+            .finally(() => {setLoading(false);});
         }
     }, [id]);
     
     if (loading) return <p>Loading...</p>;
-    if (!guest) return <p>Huésped no encontrado.</p>;
+    if (!booking) return <p>Huésped no encontrado.</p>;
+
+    const guest = booking.guest;
+    const checkInDate = new Date(booking.checkIn);
+    const checkOutDate = new Date(booking.checkOut);
 
     return (
         <StyledGuestDetailsInfo>
@@ -64,11 +85,11 @@ export default function GuestDetailsInfo() {
             <div className="chechInDiv">
                 <div>
                     <span>Check In</span>
-                    <p>{guest.checkIn?.date} | {guest.checkIn?.hour}</p>
+                    <p>{checkInDate.toLocaleDateString()} | {checkInDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
                 </div>
                 <div>
                     <span>Check Out</span>
-                    <p>{guest.checkOut?.date} | {guest.checkOut?.hour}</p>
+                    <p>{checkOutDate.toLocaleDateString()} | {checkOutDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
                 </div>
             </div>
         </StyledGuestDetailsInfo>

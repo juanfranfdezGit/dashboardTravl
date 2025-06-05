@@ -92,7 +92,7 @@ export default function GuestTable({ filter }) {
                     const checkOutHour = new Date(booking.checkOut).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
                     return (
-                        <tr key={booking._id} onClick={() => navigate(`/dashboard/guest/${booking._id}`)}>
+                        <tr key={booking._id} onClick={() => navigate(`/dashboard/bookings/${booking._id}`)}>
                         <td className="img-name">
                             <img src={room.roomImage || '/default-room.png'} alt={guest.personName || 'Guest'} />
                             <div>
