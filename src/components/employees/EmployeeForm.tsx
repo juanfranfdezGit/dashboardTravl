@@ -1,62 +1,50 @@
 import styled from "styled-components";
 import { useTranslation } from 'react-i18next';
-import { useDispatch } from "react-redux";
-import { addEmployee } from "../../redux/employeeSlice";
+import axios from "axios";
 
 export default function EmployeeForm({ onClose }) {
 
     const { t } = useTranslation();
-    const dispatch = useDispatch();
 
-    function formatDate() {
+    function formatDateISO() {
         const today = new Date();
-    
-        const monthNames = [
-            "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-            "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
-        ];
-    
-        const day = today.getDate();
-        const month = monthNames[today.getMonth()];
-        const year = today.getFullYear();
-    
-        function getDaySuffix(day) {
-            if (day > 3 && day < 21) return 'th'; 
-            switch (day % 10) {
-                case 1: return 'st';
-                case 2: return 'nd';
-                case 3: return 'rd';
-                default: return 'th';
-            }
-        }
-    
-        const suffix = getDaySuffix(day);
-    
-        return `${month} ${day}${suffix} ${year}`;
+        return today.toISOString(); 
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        const jobDesk = e.target.querySelectorAll('input[name="jobDesk"]:checked');
+        const form = e.currentTarget;
+
+        const jobDesk = form.querySelectorAll<HTMLInputElement>('input[name="jobDesk"]:checked');
         const jobDeskValues = Array.from(jobDesk).map(f => f.value);
 
-        const schedule = e.target.querySelectorAll('input[name="schedule"]:checked');
+        const schedule = form.querySelectorAll<HTMLInputElement>('input[name="schedule"]:checked');
         const scheduleValues = Array.from(schedule).map(f => f.value);
 
         const employeeData = {
-            id: "0000124",
-            image: "https://randomuser.me/api/portraits/women/1.jpg",
-            name: e.target["employeeName"].value,
-            contact: e.target["contact"].value,
+            personImage: "https://randomuser.me/api/portraits/women/1.jpg",
+            personName: (form.elements.namedItem("personName") as HTMLInputElement).value,
+            contact: (form.elements.namedItem("contact") as HTMLInputElement).value,
             jobDesk: jobDeskValues,
             schedule: scheduleValues,
-            joined: formatDate(),
+            joined: new Date().toISOString(),
             status: "Active"
-        }
+        };
 
-        dispatch(addEmployee(employeeData))
-        onClose()
+        axios.post("http://localhost:3000/api/employees", employeeData, {
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem("token")}`
+            }
+        })
+        .then((res) => {
+            console.log("Empleado creado:", res.data);
+            onClose();
+        })
+        .catch((error) => {
+            console.log("Error al agregar empleado:", error);
+        });
     };
 
     return (
@@ -65,8 +53,8 @@ export default function EmployeeForm({ onClose }) {
                 <p className="closebtn" onClick={onClose}>X</p>
                 <h2>{t("form.Add Employee")}</h2>
                 <div>
-                    <input type="text" name="employeeName" id="employeeName" placeholder=" " required />
-                    <label htmlFor="employeeName">{t("form.Employee Name")}</label>
+                    <input type="text" name="personName" id="personName" placeholder=" " required />
+                    <label htmlFor="personName">{t("form.Employee Name")}</label>
                 </div>
                 <div>
                     <input type="number" name="contact" id="contact" placeholder=" " required />
