@@ -1,21 +1,18 @@
 import styled from "styled-components";
 import { useTranslation } from 'react-i18next';
-import { useDispatch } from "react-redux";
-import { addRoom } from "../../redux/roomSlice";
+import axios from "axios";
 
 export default function RoomForm({ onClose }) {
 
     const { t } = useTranslation();
-    const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
         const facilities = e.target.querySelectorAll('input[name="facilities"]:checked');
-        const facilitiesValues = Array.from(facilities).map(f => f.value);
+        const facilitiesValues = Array.from(facilities).map(f => (f as HTMLInputElement).value);
 
         const roomData = {
-            id: "room ID",
             roomNumber: "#000000223",
             name: e.target["roomName"].value, 
             bedType: e.target["bedType"].value,  
@@ -26,9 +23,20 @@ export default function RoomForm({ onClose }) {
             status: "Available",
             description: e.target["description"].value
         }
-        console.log(roomData);
-        dispatch(addRoom(roomData))
-        onClose()
+
+        axios.post("http://localhost:3000/api/rooms", roomData, {
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem("token")}`
+            }
+        })
+        .then((res) => {
+            console.log("Room creado:", res.data);
+            onClose();
+        })
+        .catch((error) => {
+            console.log("Error al agregar room:", error);
+        });
     };
     
     return (
