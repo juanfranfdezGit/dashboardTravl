@@ -1,3 +1,3 @@
 # Travl Dashboard
 
-Frontend for dashboard travl
+Frontend for dashboard travl app
