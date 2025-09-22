@@ -1,3 +1,3 @@
 # Travl Dashboard
 
-Frontend for dashboard travl with react
+Frontend for dashboard travl 
