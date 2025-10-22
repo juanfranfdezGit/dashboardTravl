@@ -1,4 +1,4 @@
 # Travl Dashboard frontend
 
-Frontend app dashboard travl React
+Frontend app, dashboard travl with React
 
